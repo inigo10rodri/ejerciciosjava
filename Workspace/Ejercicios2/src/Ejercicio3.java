@@ -1,0 +1,28 @@
+import java.util.Scanner;
+//Pedir dos nombres y comprobar si son el mismo.
+public class Ejercicio3 {
+
+	public static void main(String[] args) {
+		//Definir las variables
+		String nombre1;
+		String nombre2;
+		//Iniciar el scanner
+		Scanner sc=new Scanner(System.in);
+		//Pedir primer nombre
+		System.out.print("Introduce el primer nombre: ");
+		//Leer primer nombre
+		nombre1=sc.nextLine();
+		//Pedir segundo nombre
+		System.out.print("Introduce el segundo nombre: ");
+		//Leer segundo nombre
+		nombre2=sc.nextLine();
+		//Condicion si los nombres son iguales o no
+		if(nombre1.equals(nombre2)){
+			System.out.print("Los nombres son iguales!");
+		}
+		else{
+			System.out.print("Los nombres no son iguales!");
+		}
+	}
+
+}

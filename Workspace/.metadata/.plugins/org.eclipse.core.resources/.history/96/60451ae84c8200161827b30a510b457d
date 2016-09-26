@@ -1,0 +1,10 @@
+import java.util.Scanner;
+public class Ejercicio6 {
+//Pedir dos números y mostrarlos ordenados de mayor a menor
+	public static void main(String[] args) {
+		//Definir las variables
+		
+
+	}
+
+}

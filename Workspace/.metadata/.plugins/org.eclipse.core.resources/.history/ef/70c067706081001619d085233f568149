@@ -1,0 +1,28 @@
+import java.util.Scanner;
+//Pedir un número e indicar si es positivo o negativo.
+public class Ejercicio4 {
+
+	public static void main(String[] args) {
+		//Definir las variables
+		double numero;
+		//Iniciar scanner
+		Scanner sc=new Scanner(System.in);
+		//Pedir un numero al usuario
+		System.out.print("Introduce un numero: ");
+		//Leer el numero
+		numero=sc.nextDouble();
+		//Condicion si es positivo o negatico
+		if(numero>=1){
+			System.out.print("El numero es positivo");
+		}
+		if(numero==0){
+			System.out.print("El numero es neutro");
+		}
+		else{
+			System.out.print("El numero es negativo");
+		}
+		
+
+	}
+
+}

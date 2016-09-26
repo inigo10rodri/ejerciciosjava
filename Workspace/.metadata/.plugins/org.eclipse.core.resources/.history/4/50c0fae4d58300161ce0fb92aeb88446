@@ -1,0 +1,17 @@
+import java.util.Random;
+public class DelegadoClase {
+
+	public static void main(String[] args) {
+		//Definir las variables
+		int delegado;
+		int subdelegado;
+		int randomnum;
+		//Iniciar el random
+		Random r = new Random();
+		int Low = 1;
+		int High = 23;
+		int Result = r.nextInt(High-Low) + Low;
+
+	}
+
+}

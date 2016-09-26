@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Tienda {
+
+	public static void main(String[] args) {
+		//Definir las variables
+		String producto;
+		double precio;
+		double cantidad;
+		//Definir el scanner para leer por consola
+		Scanner sc=new Scanner(System.in);
+		//Pedir producto
+		System.out.print("Producto: ");
+		//Leer producto
+		producto=sc.nextLine();	
+		//Pedir cantidad
+		System.out.print("Cantidad: ");
+		//leer cantidad
+		cantidad=sc.nextDouble();
+		//Pedir precio
+		System.out.print("Precio: ");
+		//Leer precio
+		precio=sc.nextDouble();
+		//definir una var para calcular el precio total
+		double precioTotal=precio*cantidad;
+		//escribe tu compra por consola
+		System.out.print(cantidad +" kg de " +producto +" son "+ 
+		String.format("%.2f",precioTotal)+" € ");
+	}
+}

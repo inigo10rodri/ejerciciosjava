@@ -1,0 +1,46 @@
+import java.util.Scanner;
+public class DelegadoClase {
+
+	public static void main(String[] args) {
+		//Definir las variables
+		int delegado;
+		int subdelegado;
+		int alumnos;
+		String[] nombre = new String[22];
+		nombre[1] = "tibi";
+		nombre[2] = "alex";
+		nombre[3] = "marius";
+		nombre[4] = "Jesus";
+		nombre[5] = "Ion";
+		nombre[6] = "Juan";
+		nombre[7] = "Sergio";
+		nombre[8] = "Cristina";
+		nombre[9] = "Andrea Isabel";
+		nombre[10] = "Maite";
+		nombre[11] = "Asier";
+		nombre[12] = "David";
+		nombre[13] = "Said";
+		nombre[14] = "Cesar";
+		nombre[15] = "Aitor";
+		nombre[16] = "Tamara";
+		nombre[17] = "Aitor";
+		nombre[18] = "Iñigo";
+		nombre[19] = "Iker";
+		nombre[20] = "Asier";
+		nombre[21] = "Jose Mari";
+		nombre[22] = "Julen";
+		//Iniciar el random
+		Scanner sc= new Scanner(System.in);
+		//Pedir cuantos alumnos sois en clase
+		System.out.print("¿Cuantos alumnos sois en clase? ");
+		//Leer cuantos añumnos hay
+		alumnos=sc.nextInt();
+		//Decir quien es el delegado
+		delegado= (int) (Math.random()*(alumnos-1)+1);
+		System.out.println("El delegado es el: " + delegado);
+		//Decir quien es el subdelegado
+		subdelegado= (int) (Math.random()*(alumnos-1)+1);
+		System.out.print("El subdelegado es el: "+ subdelegado);
+	}
+
+}
