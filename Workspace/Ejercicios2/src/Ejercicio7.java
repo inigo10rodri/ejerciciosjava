@@ -17,6 +17,7 @@ public class Ejercicio7 {
 		tiene que ser un numero entre 0 y 9999*/
 		if (0>numero || numero>9999){
 			System.out.print("El numero debe estar entre 0 y 9999");
+			//Metemos otra vez el numero por teclado
 			numero=sc.nextInt();
 									}
 		/* sino que haga la operacion de dividir entre 10 el numero hasta que se quede en 0*/
