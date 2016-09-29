@@ -13,12 +13,13 @@ public class Ejercicio9 {
 		System.out.print("Introduce un numero de 4 cifras");
 		numero=sc.nextInt();
 		//Condicion para que el numero sea de 4 cifras
-		if(numero>1000 && numero<9999){
+	if(numero>1000 && numero<9999){
 		//Inicializamos las tres variables
 		while(numero<=0);{
 		  falta=numero;
 		  numInvertido=0;
-		  resto=0;}
+		  resto=0;
+		}//while
 		/*Para obtener el último dígito del número lo haremos
 		con el resto de una división entre diez.*/
 		//4224%10 = 4
@@ -38,16 +39,17 @@ public class Ejercicio9 {
 		 resto=falta%10;
 		 numInvertido=numInvertido*10+resto;
 		 falta=falta/10;
-		}
+		}//while
 		//Si el numero es igual que el numero invertido sera capicua sino no es capicua
 		if(numInvertido==numero){
 			 System.out.println("\nEl numero es capicua\n");}
 		else{
 			 System.out.println("\nEl numero no es capicua\n");}
-		//El numero debe estar entre 1000 y 9999							}
-		else {
-			System.out.print("El numero debe estar entre 1000 y 9999");
-		}
-	}
+									}//if
+		//El numero debe estar entre 1000 y 9999							
+	else {
+			System.out.print("El numero debe estar entre 1000 y 9999");}
+		
+	}//main
 
-}
+}//class
