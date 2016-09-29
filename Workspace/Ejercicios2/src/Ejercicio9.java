@@ -26,7 +26,7 @@ public class Ejercicio9 {
 		//Del número original hay que quitarle el último dígito.
 		//4224/10=422
 		falta=falta/10;
-		/*Guardamos el numero substraido , para ello simplemente lo sumaremos
+		/*Guardamos el numero quitado , para ello simplemente lo sumaremos
 		 al número que tengamos, multiplicado por 10.
 		0*10+4=4
 		4*10+2=42
