@@ -14,12 +14,12 @@ public class Ejercicio9 {
 		numero=sc.nextInt();
 		//Condicion para que el numero sea de 4 cifras
 	if(numero>1000 && numero<9999){
-		//Inicializamos las tres variables
-		while(numero<=0);{
+		//Inicializamos las tres variables a 0
+		  numero=0;
 		  falta=numero;
 		  numInvertido=0;
 		  resto=0;
-		}//while
+		//while
 		/*Para obtener el último dígito del número lo haremos
 		con el resto de una división entre diez.*/
 		//4224%10 = 4
