@@ -15,29 +15,29 @@ public class Ejercicio10 {
 		case 0:
 		case 1:
 		case 2:
-			notaTxt=("Muy deficiente");
+			notaTxt=("muy deficiente");
 			break;
 		case 3:
 		case 4:
-			notaTxt=("Insuficiente");
+			notaTxt=("insuficiente");
 			break;
 		case 5:
-			notaTxt=("Suficiente");
+			notaTxt=("suficiente");
 			break;
 		case 6:
-			notaTxt=("Bien");
+			notaTxt=("bien");
 			break;
 		case 7:
-			notaTxt=("Notable");
+			notaTxt=("notable");
 			break;
 		case 8:
-			notaTxt=("Notable alto");
+			notaTxt=("notable alto");
 			break;
 		case 9:
-			notaTxt=("Sobresaliente");
+			notaTxt=("sobresaliente");
 			break;
 		case 10:
-			notaTxt=("Matricula de honor");
+			notaTxt=("matricula de honor");
 			break;
 		default:
 			notaTxt=("ERROR! La nota tiene que ser de 0 a 10");
