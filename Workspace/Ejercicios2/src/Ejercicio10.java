@@ -12,7 +12,7 @@ public class Ejercicio10 {
 		//Leer la nota y el texto
 		notaAlum=sc.nextInt();
 		notaTxt=sc.nextLine();
-		//Si esta entre 0 y 10
+		//Si la nota esta entre 0 y 10
 		if (notaAlum>=0 && notaAlum<=10){
 		switch(notaAlum){
 		case 0:
