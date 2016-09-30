@@ -40,11 +40,12 @@ public class Ejercicio10 {
 			notaTxt=("matricula de honor");
 			break;
 		default:
-			notaTxt=("ERROR! La nota tiene que ser de 0 a 10!");
+			notaTxt=(" nota que no es valida porque debe estar entre 0 y 10!");
 			
 						}//switch
-		System.out.print("Has sacado un "+ notaTxt);
+		//Leer el resultado
+		System.out.print("Has sacado un/una "+ notaTxt);
 
 	}
 
-}
+} 
