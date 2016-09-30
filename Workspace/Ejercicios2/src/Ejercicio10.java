@@ -9,8 +9,11 @@ public class Ejercicio10 {
 		Scanner sc=new Scanner(System.in);
 		//Pedir nota del alumno 
 		System.out.print("Introduce la nota del alumno: ");
-		//Leer la nota
+		//Leer la nota y el texto
 		notaAlum=sc.nextInt();
+		notaTxt=sc.nextLine();
+		//Si esta entre 0 y 10
+		if (notaAlum>=0 && notaAlum<=10){
 		switch(notaAlum){
 		case 0:
 		case 1:
@@ -39,13 +42,16 @@ public class Ejercicio10 {
 		case 10:
 			notaTxt=("matricula de honor");
 			break;
-		default:
-			notaTxt=(" nota que no es valida porque debe estar entre 0 y 10!");
 			
 						}//switch
+		System.out.print("Has sacado un "+ notaTxt);
+		
+										}//if
+		//Sino esta entre 0 y 10
+		else{
 		//Leer el resultado
-		System.out.print("Has sacado un/una "+ notaTxt);
+		System.out.print("Introduce una nota valida, es decir, entre 0 y 10. ");
 
+			}
 	}
-
 } 
