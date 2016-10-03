@@ -10,10 +10,14 @@ public class Dni {
 		Scanner sc=new Scanner(System.in);
 		//Pedimos el numero del DNI al usuario
 		System.out.print("Introduce el numero del DNI: ");
+		//Leemos el numero del DNI y la letra
 		numeroDni=sc.nextInt();
-		resto=numeroDni%23;
 		letra=sc.nextLine();
+		//Hacemos la operacion de dividir el numero entre 23 para saber el resto
+		resto=numeroDni%23;	
+		//Si el resto esta entre 0 y 22 tendra una de estas letras
 		if(resto>=0 && resto<=22){
+		//En los diferentes casos tendra una letra 
 		switch(resto){
 		case 0:
 			letra=("T");
@@ -85,11 +89,12 @@ public class Dni {
 			letra=("E");
 			break;
 		}//switch
+		//Leemos por pantalla la letra de tu DNI
 		System.out.print("Tu letra del DNI es: "+ letra);
 		}//if
 		else {
-		System.out.print("Ese numero de DNI no existe");			
-			}//else
+			System.out.print("Ese numero de DNI no existe");	
+			 }//else		
 	}//main
 
 }//class
