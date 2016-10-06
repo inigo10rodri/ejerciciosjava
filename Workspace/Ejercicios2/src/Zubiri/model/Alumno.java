@@ -32,7 +32,7 @@ public class Alumno {
 			if(nota>=5){
 				return "Aprobado";
 			}else{
-				return "Suspenso";
+				return "Suspendido";
 			}
 		}
 

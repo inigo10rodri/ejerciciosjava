@@ -9,23 +9,28 @@ public class ProgramaAlumno {
 		Scanner sc= new Scanner(System.in);
 		//Crear alumno
 		Alumno alum1=new Alumno();
+		//Definir las variables para guardar los datos
+		String nombre;
+		String asignatura;
+		double nota;		
 		//Pedir nombre del alumno
 		System.out.print("Alumno: ");
-		String nomAlum=sc.nextLine();
 		//Leer nombre
-		alum1.setNombre(nomAlum);
+		nombre=sc.nextLine();		
 		//Pedir aginatura al alumno
 		System.out.print("Asignatura: ");
-		String asigAlum=sc.nextLine();
 		//Leer la asignatura 
-		alum1.setAsignatura(asigAlum);
+		asignatura=sc.nextLine();		
 		//Pedir nota del alumno
 		System.out.print("Nota: ");
-		double notaAlum=sc.nextDouble();
 		//Leer la nota
-		alum1.setNota(notaAlum);
-		//Leer por pantalla el resultado final
-		System.out.println(alum1.getNombre()+" en "+alum1.getAsignatura()+" tienes un "+alum1.getCalificacion());
+		nota=sc.nextDouble();
+		//Asignarle los datos introducidos por usuario
+		alum1.setNombre(nombre);
+		alum1.setAsignatura(asignatura);
+		alum1.setNota(nota);
+		//Mostrar por pantalla el resultado final
+		System.out.println(alum1.getNombre()+" has "+alum1.getCalificacion()+" "+alum1.getAsignatura());
 			}//main
 
 }//class
