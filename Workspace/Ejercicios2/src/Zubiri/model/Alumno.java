@@ -1,4 +1,4 @@
-package Zubiri;
+package Zubiri.model;
 
 public class Alumno {
 	//Atributos

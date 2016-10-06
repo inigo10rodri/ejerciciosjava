@@ -1,5 +1,7 @@
-package Zubiri;
+package Zubiri.gui;
 import java.util.Scanner;
+
+import Zubiri.model.Alumno;
 public class ProgramaAlumno {
 
 	public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class ProgramaAlumno {
 		//Leer la nota
 		alum1.setNota(notaAlum);
 		//Leer por pantalla el resultado final
-		System.out.println(alum1.getNombre()+" en "+alum1.getAsignatura()+" tienes un "+alum1.getCalificacion());;
-			}
+		System.out.println(alum1.getNombre()+" en "+alum1.getAsignatura()+" tienes un "+alum1.getCalificacion());
+			}//main
 
-}
+}//class
