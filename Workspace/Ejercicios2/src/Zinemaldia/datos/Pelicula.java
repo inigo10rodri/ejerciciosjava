@@ -5,7 +5,6 @@ public class Pelicula {
 	private String titulo;
 	private String director;
 	private int duracion;
-	private String msgVisto;
 	private boolean visto;
 	
 	//Metodo constructor

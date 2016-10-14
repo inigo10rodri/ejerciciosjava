@@ -13,7 +13,7 @@ public class ProgramaPelicula {
 		String titulo;
 		String director;
 		int duracion;
-		boolean visto;
+		String visto;
 		String msg="";
 		//Titulo
 		System.out.print("Titulo: ");
@@ -26,19 +26,24 @@ public class ProgramaPelicula {
 		duracion=sc.nextInt();
 		//Visto
 		System.out.print("Visto: ");
-		visto=sc.nextBoolean();				
-		//Asignarle los datos introducidos por los usuarios
-		pelicula.setTitulo(titulo);
-		pelicula.setDirector(director);
-		pelicula.setDuracion(duracion);
-		pelicula.setVisto(visto);
+		sc.nextLine();
+		visto=sc.nextLine();				
 		//
-		if(pelicula.isVisto()){
-			msg="vista";}
+		if(visto.toLowerCase().equals("si")){
+			pelicula.setVisto(true);}
 		else
-			{msg="no ha sido vista";}
+			{pelicula.setVisto(false);}
+		//Asignarle los datos introducidos por los usuarios
+				pelicula.setTitulo(titulo);
+				pelicula.setDirector(director);
+				pelicula.setDuracion(duracion);
+		///
+			if(pelicula.isVisto()==true){
+				msg=" Ha sido vista";
+			}
+			else { msg=" No ha sido vista";}
 		//Leer por pantalla el resultado final
 		System.out.println("La pelicula "+pelicula.getTitulo()+" del director "+pelicula.getDirector()+" y tiene una duracion de "+pelicula.getDuracion()+" minutos.");	
-		System.out.print("¿La has visto?"+pelicula.isVisto());
+		System.out.print("¿La has visto?"+msg);
 	}
 }
