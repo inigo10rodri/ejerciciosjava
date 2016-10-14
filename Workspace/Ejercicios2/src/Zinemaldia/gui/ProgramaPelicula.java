@@ -43,7 +43,9 @@ public class ProgramaPelicula {
 			}
 			else { msg=" No ha sido vista";}
 		//Leer por pantalla el resultado final
-		System.out.println("La pelicula "+pelicula.getTitulo()+" del director "+pelicula.getDirector()+" y tiene una duracion de "+pelicula.getDuracion()+" minutos.");	
-		System.out.print("¿La has visto?"+msg);
+		System.out.println("La pelicula "+pelicula.getTitulo()+" del director "
+		+pelicula.getDirector()+" y tiene una duracion de "+pelicula.getDuracion()+
+		" minutos.");	
+		System.out.print("¿Ha sido vista?"+msg);
 	}
 }

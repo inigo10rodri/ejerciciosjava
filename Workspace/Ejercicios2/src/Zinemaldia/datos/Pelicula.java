@@ -8,8 +8,14 @@ public class Pelicula {
 	private boolean visto;
 	
 	//Metodo constructor
+	public Pelicula(){
+		titulo="";
+		duracion=0;
+		visto=false;
+	}
 	public Pelicula(String titulo){
-			this.titulo=titulo;
+		this.titulo=titulo;}
+	public Pelicula(String titulo,String director,int duracion,boolean visto){		
 	}
 	//metodos getter y setter
 	//titulo
@@ -20,7 +26,7 @@ public class Pelicula {
 		this.titulo = titulo;
 	//Director
 	}
-	public String getDirector() {
+	public String getDirector(){
 		return director;
 	}
 	public void setDirector(String director) {
@@ -31,8 +37,7 @@ public class Pelicula {
 		return duracion;
 	}
 	public void setDuracion(int duracion) {
-		this.duracion = duracion;
-	
+		this.duracion = duracion;	
 	//Visto
 	}
 	public void setVisto(boolean visto) {
