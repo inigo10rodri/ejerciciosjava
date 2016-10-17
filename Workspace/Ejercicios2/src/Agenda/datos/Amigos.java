@@ -10,7 +10,7 @@ public class Amigos {
 	public Amigos(String nombre){
 		this.setNombre(nombre);
 	}
-	public Amigos(String nombre,String email,String telefono){		
+	public Amigos(String nombre,String email,int telefono){		
 	}
 	//Metodos getter y setter
 	//Nombre
