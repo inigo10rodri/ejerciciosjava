@@ -28,7 +28,8 @@ public class Programa {
 		amigo.setEmail(email);
 		amigo.setTelefono(telefono);
 		//Leer por pantalla el resultado final
-
+		System.out.print(amigo.getNombre()+" ha sido añadido a la agenda con el email: "
+		+amigo.getEmail()+" y el teléfono: "+amigo.getTelefono());
 	}
 
 }

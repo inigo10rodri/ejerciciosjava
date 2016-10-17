@@ -10,8 +10,6 @@ public class Pelicula {
 	//Metodo constructor
 	public Pelicula(){
 		titulo="";
-		duracion=0;
-		visto=false;
 	}
 	public Pelicula(String titulo){
 		this.titulo=titulo;}
