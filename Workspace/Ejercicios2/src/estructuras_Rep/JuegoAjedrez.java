@@ -1,21 +1,19 @@
 package estructuras_Rep;
 import java.util.Scanner;
-//Pide un numero y muestra el factorial
-public class Factorial {
+//Cada casilla elevado a 2 en 64 casillas que tiene la tabla de ajedrez
+public class JuegoAjedrez {
 
 	public static void main(String[] args) {
 		//variables
-		double numero;
-		double factorial=1;
+		double numero=1;
 		//iniciar scanner
 		Scanner sc=new Scanner(System.in);
 		System.out.print("Numero:");
-		numero=sc.nextInt();
+		numero=sc.nextDouble();
 		//bucle	i es igual al numero, mientras el numero sea mayor o igual que 1 vaya restando de uno en uno	
-		for(double i=numero;numero>=1;numero--){
-			factorial=factorial*numero;
-											}
-		System.out.println(factorial);
+		for(double i=1;i<=64;i++){
+			double resultado=(double)Math.pow(numero,  i);
+			System.out.println(resultado);}
 
 	}//main
 
