@@ -16,8 +16,6 @@ public class NumerosPosNeg {
 		num=sc.nextInt();
 		}
 		System.out.print("Los numeros introducidos han sido: "+cont);
-		
-
 	}
 
 }
