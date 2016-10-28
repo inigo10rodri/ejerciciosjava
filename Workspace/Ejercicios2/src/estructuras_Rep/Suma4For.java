@@ -14,7 +14,7 @@ public class Suma4For {
 			System.out.print("Num: ");
 			//Leemos por pantalla
 			num=sc.nextInt();
-			//suma es igual a la suma mas el numero añadido hasta que se introduzacn 4 numeros
+			//suma es igual a la suma mas el numero añadido hasta que se introduzcan 4 numeros
 			suma=suma+num;			
 		}//for
 		//Leemos por pantalla el resultado final
