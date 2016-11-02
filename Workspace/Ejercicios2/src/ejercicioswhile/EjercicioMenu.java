@@ -14,7 +14,7 @@ public class EjercicioMenu {
 		//Iniciar scanner
 		Scanner sc=new Scanner(System.in);
 		//Mostrar menu
-		System.out.print("**Menu**\n1.Saludo:\n2.Hora:\n3.Fecha:\n4.Salir:");
+		System.out.print("**Menu**\n1.Saludo:\n2.Hora:\n3.Fecha:\n4.Salir:\n");
 		do{
 			//Leer opcion seleccionada
 			opcionSel=sc.nextInt();
