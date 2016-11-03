@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 public class NotasArrays {
 
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		// TODO Auto-generated method stub
+	public static void main(String[] args) {		
 		//String nombre;
 		//String[] TotAsignaturas;
 		//int[] TotAlumnos;
-		int[] TotNotas=new int [10];
+		int[] TotNotas=new int [4];
+		Scanner sc=new Scanner(System.in);
 		int suma=0;		
 		for(int i=0;i<TotNotas.length;i++){
 			System.out.print("Nota "+i+":");
