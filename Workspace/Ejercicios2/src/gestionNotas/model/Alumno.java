@@ -18,7 +18,7 @@ public class Alumno {
 	public void setNomAlum(String nomAlum) {
 		this.nomAlum = nomAlum;
 	}
-	public void addAsig(Asignatura asig){//añadie la asignatura	
+	public void addAsig(Asignatura asig){//añadir la asignatura	
 		if(contAsig<MAX_ASIG){
 		asignaturas[contAsig]=asig;
 		contAsig++;
@@ -26,5 +26,16 @@ public class Alumno {
 			System.out.println("No se puede matricular");
 		}
 	}//addAsig
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String lista=nomAlum+"[";
+		for(int i=0;i<contAsig;i++){
+			lista=lista+asignaturas[i]+",";
+		}
+		lista=lista+"]";
+		return lista;
+	}
+	
 	
 }//class

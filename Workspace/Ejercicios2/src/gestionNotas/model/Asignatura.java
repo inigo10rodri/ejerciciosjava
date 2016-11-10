@@ -22,4 +22,10 @@ public class Asignatura {
 	public void setNota(double nota) {
 		this.nota = nota;
 	}
+	//Mostrar nota -->  BBDD:5 = nombre+":"+nota
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return nombre+": "+nota;
+	}
 }//class

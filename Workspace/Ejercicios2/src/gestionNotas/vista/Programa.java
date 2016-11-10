@@ -11,7 +11,7 @@ public class Programa {
 		Scanner sc=new Scanner (System.in);		
 		String nomAlum;
 		String nomAsig;
-		double notaAsig;
+		double nota;
 		//Pedir nombre del alumno
 		System.out.print("Nombre: ");
 		nomAlum=sc.nextLine();
@@ -21,19 +21,24 @@ public class Programa {
 			//Pedir nombre de asignatura
 			System.out.print("Nombre asignatura: ");
 			nomAsig=sc.nextLine();
-				
-				while(!nomAsig.equals(""));{			
+				//Para finalizar el while introducir un espacio
+				while(!nomAsig.equals("")){			
 					//Pedir nota de la asignatura
 					System.out.print("Nota asignatura: ");
-					notaAsig=sc.nextDouble();
+					nota=sc.nextDouble();
+					//Saltar el fin de linea
+					sc.nextLine();
 					//crear asignatura
 					Asignatura asig=new Asignatura(nomAsig);
-					asig.setNota(notaAsig);
+					asig.setNota(nota);
 					//añadir esa asignatura al alumno
 					alu1.addAsig(asig);
-				
-		}
+					//Pedir nombre asign
+					System.out.print("Nombre asignatura: ");
+					nomAsig=sc.nextLine();
+				}//while
 		//mostrar resultado del expediente Juan[LM:4,Prog:5,BBDD:1]
-	}
+		System.out.print(alu1);
+	}//main
 
-}
+}//class
