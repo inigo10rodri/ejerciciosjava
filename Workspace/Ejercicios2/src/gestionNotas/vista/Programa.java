@@ -38,7 +38,7 @@ public class Programa {
 					nomAsig=sc.nextLine();
 				}//while
 		//mostrar resultado del expediente Juan[LM:4,Prog:5,BBDD:1]
-		System.out.print(alu1);
+		System.out.println(alu1);
 		System.out.print("La nota media de "+alu1.getNomAlum() +" es: "+alu1.getMedia());
 	}//main
 

@@ -56,18 +56,17 @@ public class Alumno {
 		// TODO Auto-generated method stub
 		if(this.nomAlum.equals(al.nomAlum)){
 			return true;
-	}else
-		return false;	
-	}//else
+		}else{
+		return false;
+		}//else	
+	}//boolean equals
 	//devuelve la media del alumno
 	public double getMedia(){
 		double suma=0;
-		double media=0;
-		for(int i=0;i<asignaturas.length;i++){		
-		suma=suma+asignaturas[i].getNota();			
-		}
-		media=suma/asignaturas.length;
-		return media;
+		for(int i=0;i<contAsig;i++){		
+			suma=suma+asignaturas[i].getNota();			
+		}		
+		return suma/contAsig;
 	}
 	//Devuelve la asignatura con mejor nota
 	public Asignatura getMejorAsignatura(){
@@ -76,7 +75,7 @@ public class Alumno {
 		}
 	//Elimina todas las asignaturas
 	public void delExpediente(){
-	Asignatura asignaturas[]=null;
+	Asignatura asignaturas[]=null; 
 	}		
 	//Devuelve un array de Asignaturas
 	public Asignatura[] getAsignaturas(){
