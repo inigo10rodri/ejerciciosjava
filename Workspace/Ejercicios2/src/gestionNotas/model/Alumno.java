@@ -63,14 +63,24 @@ public class Alumno {
 	//devuelve la media del alumno
 	public double getMedia(){
 		double suma=0;
-		for(int i=0;i<contAsig;i++){		
-			suma=suma+asignaturas[i].getNota();			
-		}		
+		if(contAsig==0){
+			return 0.0;
+		}else{
+			for(int i=0;i<contAsig;i++){		
+				suma=suma+asignaturas[i].getNota();			
+			}		
 		return suma/contAsig;
+		}
 	}
 	//Devuelve la asignatura con mejor nota
-	public Asignatura getMejorAsignatura(){
-		return null;
+	public double getMaxNota(){
+		double maxNota=0;
+		for(int i=0;i<contAsig;i++)
+			if (maxNota>=asignaturas[i]);{
+				
+			}
+		return 0.0;
+		
 			
 		}
 	//Elimina todas las asignaturas
