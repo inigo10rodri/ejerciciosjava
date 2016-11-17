@@ -10,6 +10,8 @@ public class Cancion {
 	//Metodo constructor
 	public Cancion(String titulo){
 		this.titulo=titulo;}
+	public Cancion(String titulo, String autor, String estilo,int duracion, boolean escuchada){
+	}
 	//Metodos
 	public String getTitulo() {
 		return titulo;
@@ -44,7 +46,7 @@ public class Cancion {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return autor+" - "+titulo;
+		return autor + titulo;
 	}
 }//class
 

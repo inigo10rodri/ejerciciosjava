@@ -1,0 +1,24 @@
+package ejercicio4;
+
+public class Programa {
+
+	public static void main(String[] args) {
+		//Crear primera cancion
+		Cancion c1=new Cancion("Donde ta mi carro");
+		c1.setAutor("Manolo");
+		c1.setEstilo("Cañi");
+		c1.setDuracion(180);
+		
+		//Crear segunda cancion
+		Cancion c2=new Cancion("Porompompero");
+		c2.setAutor("Manolo");
+		c2.setEstilo("Cañi");
+		c2.setDuracion(190);
+		
+		//imprimir las canciones
+		System.out.println(c1);
+		System.out.println(c2);	
+	}
+	
+
+}

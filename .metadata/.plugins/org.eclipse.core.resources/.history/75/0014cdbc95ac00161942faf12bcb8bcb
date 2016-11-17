@@ -13,7 +13,7 @@ public class Ejercicio3 {
 			//Introduce una nota
 			System.out.print("Introducir nota(negativa para terminar): ");
 			//Leer nota
-			nota=sc.nextDouble();
+			nota=sc.nextInt();
 			if(nota>10){
 				System.out.println("Introduce un numero entre 0 y 10");
 			}//if

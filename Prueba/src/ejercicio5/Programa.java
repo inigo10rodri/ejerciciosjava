@@ -1,4 +1,6 @@
-package ejercicio4;
+package ejercicio5;
+
+import ejercicio4.Cancion;
 
 public class Programa {
 

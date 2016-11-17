@@ -1,12 +1,15 @@
-package ejercicio4;
+package ejercicio5;
+
 
 public class Cancion {
 	//Atributos
+	private static final int MAX_ESTILOS=4;
 	private String titulo;
 	private String autor;
-	private String estilo;
+	private String[] estilos=new String[MAX_ESTILOS];
 	private double duracion;
 	private boolean escuchada;
+	private int contEstilo=0;
 	//Metodo constructor
 	public Cancion(String titulo){
 		this.titulo=titulo;}
@@ -22,12 +25,6 @@ public class Cancion {
 	}
 	public void setAutor(String autor) {
 		this.autor = autor;
-	}
-	public String getEstilo() {
-		return estilo;
-	}
-	public void setEstilo(String estilo) {
-		this.estilo = estilo;
 	}
 	public double getDuracion() {
 		return duracion;
@@ -46,8 +43,12 @@ public class Cancion {
 		// TODO Auto-generated method stub
 		return autor+" - "+titulo;
 	}
+	public void addEstilo(String estilo){//añadir la asignatura	
+		if(contEstilo<MAX_ESTILOS){
+		estilos[contEstilo]=estilo;
+		contEstilo++;
+		}else{
+			System.out.println("No se puede matricular");
+		}
+	}//addAsig
 }//class
-
-	
-
-
