@@ -13,8 +13,8 @@ public class Programa {
 		
 		//Crear segunda cancion
 		Cancion cancion2=new Cancion("Porompompero");
-		cancion2.setAutor("Manolo");
-		cancion2.setEstilo("Cañi");
+		cancion2.setAutor("Pepe");
+		cancion2.setEstilo("Patxanga");
 		cancion2.setDuracion(190);
 		
 		//imprimir las canciones

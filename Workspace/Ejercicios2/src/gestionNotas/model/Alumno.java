@@ -76,10 +76,9 @@ public class Alumno {
 	public double getMaxNota(){
 		double maxNota=0;
 		for(int i=0;i<contAsig;i++)
-			if (maxNota>=asignaturas[i]);{
-				
-			}
+			
 		return 0.0;
+		return maxNota;
 		
 			
 		}

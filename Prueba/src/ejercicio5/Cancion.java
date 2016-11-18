@@ -3,13 +3,13 @@ package ejercicio5;
 
 public class Cancion {
 	//Atributos
-	private static final int MAX_ESTILOS=4;
+	private static final int MAX_ESTILOS=5;
 	private String titulo;
 	private String autor;
 	private String[] estilos=new String[MAX_ESTILOS];
 	private double duracion;
 	private boolean escuchada;
-	private int contEstilo=0;
+	private int contEstilos=0;
 	//Metodo constructor
 	public Cancion(String titulo){
 		this.titulo=titulo;}
@@ -25,6 +25,16 @@ public class Cancion {
 	}
 	public void setAutor(String autor) {
 		this.autor = autor;
+	}
+	//Devolver estilos separados por un espacio
+	public String getEstilos(){		
+			//variable strEstilos para concatenar los estilos
+		StringBuilder sbEstilos=new StringBuilder("");
+		for(int i=0;i<contEstilos;i++){
+			sbEstilos.append(estilos[i]);
+			sbEstilos.append(" ");//añadimos estilo separado por espacio
+		}
+		return sbEstilos.toString().trim();
 	}
 	public double getDuracion() {
 		return duracion;
@@ -43,12 +53,13 @@ public class Cancion {
 		// TODO Auto-generated method stub
 		return autor+" - "+titulo;
 	}
-	public void addEstilo(String estilo){//añadir la asignatura	
-		if(contEstilo<MAX_ESTILOS){
-		estilos[contEstilo]=estilo;
-		contEstilo++;
+	public void addEstilo(String estilo){//añadir el estilo	
+		if(contEstilos<MAX_ESTILOS){
+			estilos[contEstilos]=estilo;
+			contEstilos++;
 		}else{
 			System.out.println("No se admiten mas estilos");
 		}
-	}//addAsig
+	}//addEstilo	
+	
 }//class
