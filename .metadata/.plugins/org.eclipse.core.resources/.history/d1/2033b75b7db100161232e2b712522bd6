@@ -1,0 +1,10 @@
+package Ejercicio5;
+
+public class Garaje {
+	//atributos
+	int MAX_PLAZAS=100;
+	Vehiculo[]plazas;
+	String nombre;
+	double longitud;
+	double latitud;
+}

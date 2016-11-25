@@ -15,11 +15,14 @@ public class Programa {
 		Cancion cancion2=new Cancion("Porompompero");
 		cancion2.setAutor("Pepe");
 		cancion2.setEstilo("Patxanga");
+		cancion2.setEstilo("Bachata");
 		cancion2.setDuracion(190);
+		
 		
 		//imprimir las canciones
 		System.out.println(cancion1);
-		System.out.println(cancion2);	
+		System.out.println(cancion2);
+		System.out.print("Estilos: "+cancion1.getEstilo()+" "+cancion2.getEstilo());
 	}
 	
 

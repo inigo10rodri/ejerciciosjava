@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		//variables
+		String codAsignatura;
+		String asignatura="";
+		//Iniciar scanner
+		Scanner sc=new Scanner(System.in);
+		//Pedir codigo de una asignatura
+		System.out.print("Codigo: ");
+		//Leer codigo de la asignatura
+		codAsignatura=sc.nextLine();
+		if(codAsignatura.equals("PR,BD,SI,LM,ED")){
+			switch(codAsignatura){
+				case "PR": asignatura="PROGRAMACION";
+				break;
+				case "ED": asignatura="ENTORNOS DE DESARROLLO";
+				break;
+				case "BD": asignatura="BASES DE DATOS";
+				break;
+				case "LM": asignatura="LENGUAJES DE MARCAS";
+				break;
+				case "SI": asignatura="SISTEMAS INFORMATICOS";
+				break;		
+			}//switch
+			System.out.print("Asignatura: "+asignatura);
+		}else{
+			System.out.print("ESA ASIGNATURA NO EXISTE!!");
+		}		
+	}//main
+
+}//class

@@ -28,7 +28,7 @@ public class Cancion {
 	}
 	//Devolver estilos separados por un espacio
 	public String getEstilos(){		
-			//variable strEstilos para concatenar los estilos
+			//variable sbEstilos para concatenar los estilos
 		StringBuilder sbEstilos=new StringBuilder("");
 		for(int i=0;i<contEstilos;i++){
 			sbEstilos.append(estilos[i]);
