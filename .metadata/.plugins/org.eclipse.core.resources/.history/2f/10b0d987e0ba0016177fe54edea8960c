@@ -1,0 +1,25 @@
+import processing.core.PApplet;
+
+public class Escenario extends PApplet {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PApplet.main("Escenario");
+	}
+	//Tamaño de la ventana
+	public void settings(){
+		size(300,300);
+	    }
+	//Inicializacion de las cosas
+	public void setup(){
+		fill(120,50,240);
+	    }
+	//Se ejecuta infinitamente
+	public void draw(){
+		int x=10;
+		noStroke();
+		x=x+10;
+		ellipse(100,100,60,60);
+	    }
+
+}

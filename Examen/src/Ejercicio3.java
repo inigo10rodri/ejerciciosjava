@@ -21,7 +21,7 @@ public class Ejercicio3 {
 				suma=nota+suma;
 				cont++;
 				if(nota>notaMayor){
-				notaMayor=nota;
+					notaMayor=nota;
 				}//if
 				if(nota<notaMenor){
 					notaMenor=nota;

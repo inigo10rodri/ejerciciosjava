@@ -28,6 +28,7 @@ public class Vehiculo {
 		this.socio = socio;
 	}
 	public boolean equals(Vehiculo v){
+		//dos vehiculos son iguales si tienen la misma matricula
 		if(this.matricula.equals(v.matricula)){
 			return true;
 		}else{
