@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+/*Realizar un programa que pida al usuario tres números y los muestra por consola en 
+el orden inverso al introducido.*/
+public class Ejercicio3 {
+
+	public static void main(String[] args) {
+		//Variables
+		int nota;
+		int[] TotNotas=new int [3];
+		//Iniciar scanner
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<TotNotas.length;i++){
+			System.out.print("Nota "+i+":");
+			nota =sc.nextInt();
+			
+		}
+
+	}
+
+}

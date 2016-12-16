@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+/*Realizar un programa que pida al usuario 10 números y los muestra por consola en 
+el orden inverso al introducido.*/
+public class Ejercicio3 {
+
+	public static void main(String[] args) {
+		//Variables
+		int nota;
+		final int MAX_LENGHT=10;
+		int[] totNotas=new int [MAX_LENGHT];
+		//Iniciar scanner
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<MAX_LENGHT;i++){
+			System.out.println(totNotas[i]);
+			totNotas[MAX_LENGHT-i-1]=totNotas[i];
+		}
+        for(int i = 0; i < MAX_LENGHT; i++){
+            System.out.println(totNotas[i]);
+        }
+
+	}
+
+}

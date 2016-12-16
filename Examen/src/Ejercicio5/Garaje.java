@@ -24,19 +24,29 @@ public class Garaje {
 	//busca el vehiculo en el array y lo elimina
 	public void sale(Vehiculo v){
 		for(int i=0;i<MAX_PLAZAS;i++){
-			if(plazas[i].equals(v)){
-				plazas[i]=null;
-				return;
-			}
-		}
+			if(plazas[i]!=null){
+				if(plazas[i].equals(v)){
+					plazas[i]=null;
+					return;//te saca de la funcion entera y si pones break te saca del for.
+				}//if
+			}//if
+		}//for
 	}
-	public int getVehiculoPlaza(int numPlaza){
-		return MAX_PLAZAS;
+	//devuelve el vehiculo que se encuentre en dicha plaza
+	public Vehiculo getVehiculoPlaza(int numPlaza){
+		return plazas[numPlaza];
 		
 	}
+	//devuelve la plaza en la que se encuentra el vehiculo
 	public int getPlazaVehiculo(Vehiculo v){
-		
-		return (Integer) null;
+		for(int i=0;i<MAX_PLAZAS;i++){
+			if(plazas[i]!=null){
+				if(plazas[i].equals(v)){
+					return i;
+				}//if
+			}//if
+		}//for
+		return -1;
 	}
 	public int getPlazaLibre(){
 		return MAX_PLAZAS;

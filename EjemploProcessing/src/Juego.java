@@ -4,8 +4,8 @@ public class Juego extends PApplet {
 	//variables circulo
 	private int rad = 25;
 	private float xPos,yPos;
-	private float xVelocidad=(float) 8.5;
-	private float yVelocidad=8;
+	private float xVelocidad=(float)10;
+	private float yVelocidad=10;
 	private int xDireccion=1;
 	private int yDireccion=1;
 	
@@ -16,6 +16,8 @@ public class Juego extends PApplet {
 	//rectangulo 2
 	private int xPosRect2;
 	private int yPosRect2;
+	private int a;
+	private int z;
 	
 	public static void main(String[] args) {
 		
@@ -49,7 +51,7 @@ public class Juego extends PApplet {
 	}
 	
 	public void draw(){
-		background(120);
+		background(245);
 		noStroke();
 		
 		xPos=xPos + (xDireccion * xVelocidad);
@@ -72,8 +74,13 @@ public class Juego extends PApplet {
 			yPosRect=yPosRect-30;
 		}else if(keyCode==DOWN){
 			yPosRect=yPosRect+30;
-
 		}
+		if(key=='a' || key=='A'){
+			yPosRect=yPosRect-30;
+		}else if(key=='z' || key=='Z'){
+			yPosRect=yPosRect+30;
+		}
+	
 	
 	}
 	
