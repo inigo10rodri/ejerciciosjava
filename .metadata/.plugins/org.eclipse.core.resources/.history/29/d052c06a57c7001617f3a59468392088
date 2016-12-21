@@ -41,7 +41,7 @@ public class Ejercicio7 {
 							notaMenor=nota[i];
 						}//if
 					}
-					System.out.print("La nota menor es: "+notaMenor);
+					System.out.print("La nota mayor es: "+notaMenor);
 				break;
 				case 4:
 					for(int i=0 ; i<MAX_NOTAS ; i++){
@@ -49,7 +49,7 @@ public class Ejercicio7 {
 							notaMayor= nota[i];
 						}//if
 					}
-					System.out.print("La nota mayor es: "+notaMayor);
+					System.out.print("La nota menor es: "+notaMayor);
 				break;
 			}//switch
 		}//if
