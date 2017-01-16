@@ -15,16 +15,22 @@ public class Ejercicio7 {
 		double suma = 0;
 		int Menu;
 		double media;
-		//Iniciar scanenr
+		//Iniciar scanner
 		Scanner sc=new Scanner(System.in);
 			for(int i=0 ; i<10 ; i++){
 				System.out.print("Introduce una nota "+i+":");
 				nota[i]=sc.nextInt();
-			}
+					while(nota[i]<0 || nota[i]>10){
+						System.out.println("Nota no valida, introduce una nota valida!");
+						System.out.print("Introduce la nota "+i+":");
+						nota[i]=sc.nextInt();
+					}//while
+			}//for
 			System.out.println("Menú de opciones:\n -->1.Listar notas\n -->2.Calcular la media\n -->3.Calcular el menor\n -->4.Calcular el mayor");
 			Menu=sc.nextInt();
 			switch(Menu){
 				case 1:
+					System.out.print("Las notas son las siguientes:\n");
 					for(int i=0 ; i<MAX_NOTAS ; i++){
 						System.out.println(nota[i]);
 					}
@@ -52,7 +58,7 @@ public class Ejercicio7 {
 					System.out.print("La nota mayor es: "+notaMayor);
 				break;
 			}//switch
-		}//if
-	}
+		}//main
+	}//class
 
 
