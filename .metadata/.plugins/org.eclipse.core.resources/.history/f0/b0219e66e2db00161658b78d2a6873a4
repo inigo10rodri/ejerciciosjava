@@ -1,0 +1,16 @@
+
+public class Programa {
+
+	public static void main(String[] args) {
+		//Creamos nuevo profesor
+		Profesor profe1=new Profesor();
+		profe1.setNombre("Aitor");
+		System.out.println(profe1);
+		//Creamos un nuevo alumno
+		Alumno alum1=new Alumno();
+		alum1.setNombre("Juan");
+
+		System.out.println(alum1);
+	}
+
+}
