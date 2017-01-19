@@ -11,7 +11,7 @@ public class Programa {
 		}
 		System.out.print(p1);
 		System.out.println(profe1);
-		
+		//aaadasda
 		//Creamos un nuevo alumno
 		Alumno alum1=new Alumno("Juan");		
 		alum1.setNota(10);

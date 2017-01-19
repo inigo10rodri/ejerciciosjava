@@ -4,6 +4,7 @@ la temperatura máxima y mínima de cada día y vaya mostrando la media.*/
 package Temperatura;
 
 public class Temperatura {
+	public static String setTemperaturaMedia;
 	//Variables
 	private double temMax;
 	private double temMin;
