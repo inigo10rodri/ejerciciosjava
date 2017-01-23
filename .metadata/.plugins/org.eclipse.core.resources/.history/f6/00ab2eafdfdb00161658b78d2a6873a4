@@ -1,5 +1,0 @@
-
-public class Alumno extends Persona {
-	private double nota;
-
-}
