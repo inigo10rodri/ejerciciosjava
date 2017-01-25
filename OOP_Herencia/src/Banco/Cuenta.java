@@ -6,7 +6,8 @@ public abstract class Cuenta {
 	
 	//Constructoras
 	public Cuenta(String titular, double saldo){
-		
+		this.titular=titular;
+		this.saldo=saldo;		
 	}
 	public abstract void reintegro(double cant);
 	
