@@ -1,6 +1,7 @@
 
-public class Profesor extends Persona {
+public class Profesor extends Persona implements Alquilable {
 	private double salario;
+	private double precioHora=Alquilable.MIN_PRECIO;
 	
 	public Profesor(String nombre){
 		super(nombre);
@@ -16,6 +17,18 @@ public class Profesor extends Persona {
 	public String toString(){
 		//Nombre: xxxx, salario: yyyy
 		return super.toString()+", Salario: "+salario;
+	}
+	@Override
+	public double getPrecioHora() {
+		// TODO Auto-generated method stub
+		return precioHora;
+	}
+	@Override
+	public void setPrecioHora(double precio) {
+		// TODO Auto-generated method stub
+		if(precio>=Alquilable.MIN_PRECIO && precio<=MAX_PRECIO){
+		this.precioHora=precio;
+		}
 	}
 	
 }
