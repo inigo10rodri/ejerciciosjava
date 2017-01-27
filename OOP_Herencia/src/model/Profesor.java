@@ -1,3 +1,4 @@
+package model;
 
 public class Profesor extends Persona implements Alquilable {
 	private double salario;

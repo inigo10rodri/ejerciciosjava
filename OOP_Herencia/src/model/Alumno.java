@@ -1,5 +1,6 @@
+package model;
 
-public class Alumno extends Persona {
+public class Alumno extends Persona implements Comparable{
 	
 	public Alumno(String nombre) {
 		super(nombre);
@@ -22,5 +23,11 @@ public class Alumno extends Persona {
 		// TODO Auto-generated method stub
 		return super.toString()+", Nota: "+nota;
 	}
+	@Override
+	public int compareTo(Object obj) {
+		Alumno alu=(Alumno)obj;
+		return ((int)(this.nota*100-alu.nota*100));
+	}
+	
 
 }

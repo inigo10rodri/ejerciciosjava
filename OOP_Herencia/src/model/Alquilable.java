@@ -1,3 +1,4 @@
+package model;
 
 
 public interface Alquilable {//Los atributos de una interfaz siempre seran static y final
