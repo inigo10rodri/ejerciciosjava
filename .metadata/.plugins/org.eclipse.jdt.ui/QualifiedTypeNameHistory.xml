@@ -9,5 +9,6 @@
 <fullyQualifiedTypeName name="Ejercicio4.Vehiculo"/>
 <fullyQualifiedTypeName name="java.time.Year"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

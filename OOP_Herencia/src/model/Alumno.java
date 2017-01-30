@@ -28,6 +28,4 @@ public class Alumno extends Persona implements Comparable{
 		Alumno alu=(Alumno)obj;
 		return ((int)(this.nota*100-alu.nota*100));
 	}
-	
-
 }
