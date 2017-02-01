@@ -1,5 +1,11 @@
 package gui;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import model.Alquilable;
 import model.Alumno;
@@ -7,10 +13,60 @@ import model.Persona;
 import model.Profesor;
 
 public class Programa {
-
+	private ArrayList<Alumno> lstAlumnos=new ArrayList<Alumno>();
+	
+	public void guardarListado(){
+	//metodo que guarda en un fichero los datos de los alumnos
+		FileOutputStream fout;
+		try {
+			fout = new FileOutputStream(".\\listado.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(lstAlumnos);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Fichero no encontrado!");;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error  de escritura!");;
+		}		
+	}
+	public void leerListado(){
+	//metodo que lee del fichero los datos de los alumnos
+		
+	}
 	public static void main(String[] args) {
-		//crear un array con 10 alumnos, nombre y nota
-		Alumno[] listado =new Alumno[10];
+		//crear un objeto de la clase
+		Programa p=new Programa();
+		//crear un alumno
+		Alumno al1=new Alumno("Juan",5);
+		//añadirlo al listado
+		p.lstAlumnos.add(al1);
+		//guardar el listado
+		p.guardarListado();
+		//rellenar el listado con 10 alumnos
+		Scanner sc=new Scanner(System.in);
+		String nombre;
+		double nota;
+		for(int i=0;i<10;i++){
+			//pedir el nombre por consola
+			System.out.println("Introduce el nombre: ");
+			//leer el nombre
+			nombre = sc.nextLine();
+			//pedir la nota por consola
+			System.out.println("Introduce la nota: ");
+			//leer la nota
+			nota=sc.nextDouble();
+			sc.nextLine();
+			//crear un alumno
+			Alumno al1 =new Alumno(nombre,nota);
+			//introducir el alumno en el ArrayList
+			lstAlumnos.add(al1);
+		}
+		//Imprimir ArrayList
+	    for(int i=0;i<lstAlumnos.size();i++) {
+	        System.out.println(lstAlumnos.get(i));
+	     }
+		/*Alumno[] listado =new Alumno[10];
 		listado[0]=new Alumno("Juan",2);
 		listado[1]=new Alumno("Pedro",6);
 		listado[2]=new Alumno("Luis",4);
@@ -61,4 +117,4 @@ public class Programa {
 		
 	}
 
-}
+

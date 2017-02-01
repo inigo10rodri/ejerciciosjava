@@ -7,6 +7,11 @@ public class EjerciciosExcepciones {
 	public static void main(String[] args) {
 		//iniciar scanner
 		Scanner sc=new Scanner(System.in);
+		try{
+			int num=Integer.parseInt("AB");
+		}catch(NumberFormatException e){
+			System.out.println("error en formato");
+		}
 		//atributos
 		int a=100;
 		double b=0;
@@ -15,5 +20,4 @@ public class EjerciciosExcepciones {
 		System.out.println(Double.POSITIVE_INFINITY);
 		sc.hasNextDouble();
 	}
-
 }
