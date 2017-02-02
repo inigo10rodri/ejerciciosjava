@@ -1,7 +1,9 @@
 package gui;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,27 +15,10 @@ import model.Persona;
 import model.Profesor;
 
 public class Programa {
-	private ArrayList<Alumno> lstAlumnos=new ArrayList<Alumno>();
+
 	
-	public void guardarListado(){
-	//metodo que guarda en un fichero los datos de los alumnos
-		FileOutputStream fout;
-		try {
-			fout = new FileOutputStream(".\\listado.ser");
-			ObjectOutputStream oos = new ObjectOutputStream(fout);
-			oos.writeObject(lstAlumnos);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Fichero no encontrado!");;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error  de escritura!");;
-		}		
-	}
-	public void leerListado(){
-	//metodo que lee del fichero los datos de los alumnos
-		
-	}
+	
+	
 	public static void main(String[] args) {
 		//crear un objeto de la clase
 		Programa p=new Programa();
@@ -43,6 +28,9 @@ public class Programa {
 		p.lstAlumnos.add(al1);
 		//guardar el listado
 		p.guardarListado();
+		
+		
+		
 		//rellenar el listado con 10 alumnos
 		Scanner sc=new Scanner(System.in);
 		String nombre;
@@ -58,9 +46,9 @@ public class Programa {
 			nota=sc.nextDouble();
 			sc.nextLine();
 			//crear un alumno
-			Alumno al1 =new Alumno(nombre,nota);
+			Alumno al2 =new Alumno(nombre,nota);
 			//introducir el alumno en el ArrayList
-			lstAlumnos.add(al1);
+			lstAlumnos.add(al2);
 		}
 		//Imprimir ArrayList
 	    for(int i=0;i<lstAlumnos.size();i++) {
@@ -97,7 +85,7 @@ public class Programa {
 		System.out.println("Persona: "+p1);
 		System.out.println("Profesor: "+profe1);
 		
-		//
+		//pruebas interfaces Alquilable
 		System.out.println(alum1);
 		if(profe1 instanceof Profesor){
 			Profesor profe2= (Profesor)profe1;
@@ -107,7 +95,7 @@ public class Programa {
 			//Alquilable aluAlqu=new Alumno(); ->NO!!
 			Alquilable[] lista=new Alquilable[100];*/
 		}
-		//pruebas interfaces Alquilable
+		
 		
 
 		

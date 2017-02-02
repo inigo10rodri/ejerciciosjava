@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 public class Alumno extends Persona implements Comparable{
 	
 	public Alumno(String nombre) {
