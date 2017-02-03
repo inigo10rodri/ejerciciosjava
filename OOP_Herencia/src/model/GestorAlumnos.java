@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class GestorAlumnos {
 	private static final String FICHERO_LISTADO=".\\listado.ser";
 	private ArrayList<Alumno> lstAlumnos=new ArrayList<Alumno>();
+
 	
 	public void leerListado(){
 
@@ -83,7 +84,31 @@ public class GestorAlumnos {
 			}		
 		}
 	public void addAlumno(Alumno a){
-		lstAlumnos.add(a);
+		lstAlumnos.add(a);		
+	}
+	//eliminar el alumno en el indice que le pasamos
+	public void delAlumno(int index){
+		lstAlumnos.remove(index);
+	}	
+	public void delAlumno(Alumno al){
+		lstAlumnos.remove(al);
+	}
+	//modificar el alumno
+	public void modAlumno(int index,Alumno al){
+		lstAlumnos.set(index,al);
+	}
+	//devuelve el numero de alumnos que hay
+	public int getSize(){
+		return lstAlumnos.size();
+	}
+	//Devuelve el nombre alumno
+	Alumno getAlumno(String nombre){
+		lstAlumnos.add(nombre);
+		return lstAlumnos.get(1);		
+	}
+	//Devuelve la posicion del alumno
+	Alumno getAlumno(int index){
+		return lstAlumnos.get(index);		
 	}
 }
 

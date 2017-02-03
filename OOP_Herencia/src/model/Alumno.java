@@ -30,4 +30,16 @@ public class Alumno extends Persona implements Comparable{
 		Alumno alu=(Alumno)obj;
 		return ((int)(this.nota*100-alu.nota*100));
 	}
+	@Override
+	public boolean equals(Object obj) {
+		//si tienen el mismo nombre y nota es el mismo alumno
+		if(obj instanceof Alumno){
+			Alumno al=(Alumno) obj;
+			if(nota==al.nota && nombre.equals(al.nombre)){
+				return true;
+			}
+		}				
+		return false;
+	}
+	
 }

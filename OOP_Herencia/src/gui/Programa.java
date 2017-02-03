@@ -11,15 +11,23 @@ import java.util.Scanner;
 
 import model.Alquilable;
 import model.Alumno;
+import model.GestorAlumnos;
 import model.Persona;
 import model.Profesor;
 
 public class Programa {
-
+	//Gestor Alumnos
+	public static void main(String[] args){
+		GestorAlumnos ga=new GestorAlumnos();
+		//añadir un par de alumno
+		ga.addAlumno(new Alumno("Juan",5));
+		ga.addAlumno(new Alumno("Pedro",7));
+		System.out.println("Total alumnos: "+ga.getSize());
+	}
 	
 	
-	
-	public static void main(String[] args) {
+	//Arraylist Alumno
+	/*public static void main(String[] args) {
 		//crear un objeto de la clase
 		Programa p=new Programa();
 		//crear un alumno
@@ -94,15 +102,6 @@ public class Programa {
 			Alquilable a=profe2;//->OK
 			//Alquilable aluAlqu=new Alumno(); ->NO!!
 			Alquilable[] lista=new Alquilable[100];*/
-		}
+}
 		
-		
-
-		
-		
-		
-		
-		
-	}
-
 
