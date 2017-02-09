@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Alumno extends Persona implements Comparable{
+public class Alumno extends Persona implements Comparable,Serializable{
 	
 	public Alumno(String nombre) {
 		super(nombre);

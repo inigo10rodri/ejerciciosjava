@@ -16,26 +16,17 @@ import model.Persona;
 import model.Profesor;
 
 public class Programa {
-	//Gestor Alumnos
-	public static void main(String[] args){
-		GestorAlumnos ga=new GestorAlumnos();
-		//añadir un par de alumno
-		ga.addAlumno(new Alumno("Juan",5));
-		ga.addAlumno(new Alumno("Pedro",7));
-		System.out.println("Total alumnos: "+ga.getSize());
-	}
-	
-	
+	private static ArrayList<Alumno> lstAlumnos=new ArrayList<Alumno>();
 	//Arraylist Alumno
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		//crear un objeto de la clase
 		Programa p=new Programa();
 		//crear un alumno
 		Alumno al1=new Alumno("Juan",5);
 		//añadirlo al listado
 		p.lstAlumnos.add(al1);
-		//guardar el listado
-		p.guardarListado();
+		// ERROR !!guardar el listado
+		//p.guardarListado();
 		
 		
 		
@@ -62,7 +53,7 @@ public class Programa {
 	    for(int i=0;i<lstAlumnos.size();i++) {
 	        System.out.println(lstAlumnos.get(i));
 	     }
-		/*Alumno[] listado =new Alumno[10];
+		Alumno[] listado =new Alumno[10];
 		listado[0]=new Alumno("Juan",2);
 		listado[1]=new Alumno("Pedro",6);
 		listado[2]=new Alumno("Luis",4);
@@ -97,11 +88,12 @@ public class Programa {
 		System.out.println(alum1);
 		if(profe1 instanceof Profesor){
 			Profesor profe2= (Profesor)profe1;
-			/*profe2.setPrecioHora(60);
+			profe2.setPrecioHora(60);
 			//No se puede instanciar una interfaz [Alquilable b=new Alquilable();]-> NO SE PUEDE
 			Alquilable a=profe2;//->OK
 			//Alquilable aluAlqu=new Alumno(); ->NO!!
-			Alquilable[] lista=new Alquilable[100];*/
+			Alquilable[] lista=new Alquilable[100];
+		}
+	}
 }
-		
 

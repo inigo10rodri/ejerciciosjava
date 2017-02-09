@@ -11,8 +11,10 @@ import java.util.ArrayList;
 public class GestorAlumnos {
 	private static final String FICHERO_LISTADO=".\\listado.ser";
 	private ArrayList<Alumno> lstAlumnos=new ArrayList<Alumno>();
-
 	
+	public GestorAlumnos(){
+		leerListado();
+	}
 	public void leerListado(){
 
 		//metodo que lee del fichero los datos de los alumnos
@@ -101,12 +103,17 @@ public class GestorAlumnos {
 	public int getSize(){
 		return lstAlumnos.size();
 	}
-	//Devuelve el nombre alumno
+	//Devuelve el primer alumno que tenga el string que le pasamos
 	Alumno getAlumno(String nombre){
-		lstAlumnos.add(nombre);
-		return lstAlumnos.get(1);		
+		for(int i=0;i<lstAlumnos.size();i++){
+			Alumno a=lstAlumnos.get(i);
+			if(a.getNombre().toUpperCase().equals(nombre.toUpperCase())){
+				return a;
+			}
+		}
+		return null;		
 	}
-	//Devuelve la posicion del alumno
+	//Devuelve el objeto de esa posicion
 	Alumno getAlumno(int index){
 		return lstAlumnos.get(index);		
 	}
