@@ -113,8 +113,8 @@ public class GestorAlumnos {
 		}
 		return null;		
 	}
-	//Devuelve el objeto de esa posicion
-	Alumno getAlumno(int index){
+	//Devuelve el alumno de esa posicion
+	public Alumno getAlumno(int index){
 		return lstAlumnos.get(index);		
 	}
 }
