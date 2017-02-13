@@ -1,7 +1,7 @@
 package gui;
 
 import java.util.Scanner;
-
+import java.io.FileInputStream;
 import model.Alumno;
 import model.GestorAlumnos;
 
@@ -12,14 +12,14 @@ public class programaGestor {
 	public static void main(String[] args) {
 		int opc=0;
 		do{		
-		MostrarMenu();
-		//leer opcion
-		opc=sc.nextInt();
-		sc.nextLine();
-		//ejecutar opcion, le pasamos el scanner y el gestor como parametro. Tambien se pueden declarar como atributos de la clase.
-		//ejecutarOpcion(opc,sc,ga);
-		ejecutarOpcion(opc);
-		addAlumno();
+			MostrarMenu();
+			//leer opcion
+			opc=sc.nextInt();
+			sc.nextLine();
+			//ejecutar opcion, le pasamos el scanner y el gestor como parametro. 
+			//ejecutarOpcion(opc,sc,ga);
+			//Tambien se pueden declarar como atributos de la clase(ga,sc).		
+			ejecutarOpcion(opc);
 		}while(opc!=6);
 	}
 	
@@ -46,20 +46,21 @@ public class programaGestor {
 				//Borrar alumno
 				delAlumno();
 				break;
-			case 4:
-				//Buscar alumno
+			case 4://Buscar alumno
+				getAlumno();
 				break;
 			case 5: 
 				//Imprimir alumnos
-				getAlumno();
+				printAlumno();
 				break;
 			case 6: 
-				//Salir 
+				//Salir
 				break;
 			default: 
 				//error
-				System.out.println("Error!! Introduce una opcion valida!");
+				System.out.println("Introduce un valor valido");
 		}//switch
+	
 	}//ejecutarOpcion
 	private static void addAlumno() {
 		//pedir datos y crear alumno
@@ -93,18 +94,27 @@ public class programaGestor {
 		ga.delAlumno(index);
 		System.out.println("El alumno "+index+" ha sido eliminado!");
 	}
-	private static void getAlumno(){
-		//pedir indice
-		System.out.println("Indice: ");
-		int index=sc.nextInt();
-		//eliminar alumno
-		ga.getAlumno(index);
-	}
 	private static int pideIndice(){
 		//pedir indice
 		System.out.println("Indice: ");
 		int index=sc.nextInt();
 		sc.nextLine();
 		return index;		
+	}
+	private static void getAlumno(){
+		//pedir el nombre al usuario
+		System.out.println("Nombre: ");
+		String nombre=sc.nextLine();
+		//pedir al gestor el alumno
+		Alumno al=ga.getAlumno(nombre);
+		//muestra sus datos por consola(llama al metodo tostring del metodo que quiere sobrescribir en este caso al)
+		if(al==null){
+			System.out.println("Nombre no encontrado!!");
+		}else{
+			System.out.println(al);
+		}
+	}
+	private static void printAlumno(){
+		ga.leerListado();
 	}
 }

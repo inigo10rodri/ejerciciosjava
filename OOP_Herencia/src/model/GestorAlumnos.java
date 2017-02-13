@@ -86,25 +86,29 @@ public class GestorAlumnos {
 			}		
 		}
 	public void addAlumno(Alumno a){
-		lstAlumnos.add(a);		
+		lstAlumnos.add(a);
+		guardarListado();
 	}
 	//eliminar el alumno en el indice que le pasamos
 	public void delAlumno(int index){
 		lstAlumnos.remove(index);
+		guardarListado();
 	}	
 	public void delAlumno(Alumno al){
 		lstAlumnos.remove(al);
+		guardarListado(); 
 	}
 	//modificar el alumno
 	public void modAlumno(int index,Alumno al){
 		lstAlumnos.set(index,al);
+		guardarListado();
 	}
 	//devuelve el numero de alumnos que hay
 	public int getSize(){
 		return lstAlumnos.size();
 	}
 	//Devuelve el primer alumno que tenga el string que le pasamos
-	Alumno getAlumno(String nombre){
+	public Alumno getAlumno(String nombre){
 		for(int i=0;i<lstAlumnos.size();i++){
 			Alumno a=lstAlumnos.get(i);
 			if(a.getNombre().toUpperCase().equals(nombre.toUpperCase())){
