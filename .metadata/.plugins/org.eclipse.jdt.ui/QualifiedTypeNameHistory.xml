@@ -19,4 +19,6 @@
 <fullyQualifiedTypeName name="model.GestorAlumnos"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="model.Alumno"/>
+<fullyQualifiedTypeName name="model.GestorTareas"/>
+<fullyQualifiedTypeName name="model.Tarea"/>
 </qualifiedTypeNameHistroy>
