@@ -1,3 +1,5 @@
+package Temperatura;
+
 import java.util.Scanner;
 
 /*Crear una función que calcule la temperatura media de un día a partir de la temperatura

@@ -1,5 +1,6 @@
 package gui;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import model.GestorTareas;
@@ -8,20 +9,16 @@ import model.Tarea;
 public class ProgramaTareas {
 	private static int OPCION_SALIR=6;
 	GestorTareas gt=new GestorTareas();
-	private static Scanner sc=new Scanner(System.in);
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub	
 		int opc=0;
 		do{		
 			MostrarMenu();
 			//leer opcion
-			opc=sc.nextInt();
-			sc.nextLine();
-			//ejecutar opcion, le pasamos el scanner y el gestor como parametro. 
-			//ejecutarOpcion(opc,sc,ga);
-			//Tambien se pueden declarar como atributos de la clase(ga,sc).		
+			opc=leerOpcion();
 			
 		}while(opc!=OPCION_SALIR);
+		System.out.println("Has salido del programa!!");
 		
 	}
 	
@@ -35,5 +32,21 @@ public class ProgramaTareas {
 		System.out.println("6.- Salir");
 		System.out.print("Opción:");
 	}
-
+	private static int leerOpcion(){
+		Scanner sc=new Scanner(System.in);
+		int opc;
+		try{//Tratar la excepcion por si escribe algo que no sea un numero
+		opc=sc.nextInt();
+		sc.nextLine();
+		return opc;
+		}catch(InputMismatchException e){
+			System.out.println("La opcion ha de ser un numero!!!");
+			System.out.println("Pulse intro para continuar...");
+			//para saltar lo escrito anteriormente
+			sc.nextLine();
+			//esperar a que pulse intro
+			sc.nextLine();
+			return 0;
+		}		
+	}
 }
