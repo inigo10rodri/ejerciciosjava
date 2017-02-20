@@ -8,19 +8,20 @@ import model.Tarea;
 
 public class ProgramaTareas {
 	private static Scanner sc=new Scanner(System.in);
-	private static int OPCION_SALIR=6;
+	private static int OPCION_SALIR=8;
 	private static GestorTareas gt=new GestorTareas();
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub	
 		int opc=0;
 		do{		
 			MostrarMenu();
-			//leer opcion
+			//leer opcion seleccionada
 			opc=leerOpcion();
 			//ejecutar la opcion seleccionada
 			ejecutarOpcion(opc);
 		}while(opc!=OPCION_SALIR);
-		System.out.println("Has salido del programa!!");
+		System.out.println("Has salido del programa!!!");
 		
 	}
 	
@@ -31,7 +32,9 @@ public class ProgramaTareas {
 		System.out.println("3.- Listar Todas");
 		System.out.println("4.- Listar Realizadas");
 		System.out.println("5.- Listar NoRealizadas");
-		System.out.println("6.- Salir");
+		System.out.println("6.- Leer Tareas");
+		System.out.println("7.- Guardar Tareas");
+		System.out.println("8.- Salir");
 		System.out.print("Opción:");
 	}
 	private static int leerOpcion(){
@@ -58,22 +61,29 @@ public class ProgramaTareas {
 			break;
 		case 2:
 			//finalizar tarea
-			finTarea();
+			finalizarTarea();
 			break;
 		case 3: 
 			//listar tareas
-			//printTareas();
+			listarTareas(GestorTareas.LISTAR_TODAS);
 			break;
 		case 4://listar realizadas
-			//printHechas();
+			listarTareas(GestorTareas.LISTAR_REALIZADAS);
 			break;
 		case 5: 
 			//listar no realizadas
-			//printNoHechas();
+			listarTareas(GestorTareas.LISTAR_NO_REALIZADAS);
 			break;
 		case 6: 
+			//leer tareas
+			gt.leerTareas();
+			break;
+		case 7: 
+			//guardar tareas
+			gt.guardarTareas();
+			break;
+		case 8: 
 			//Salir
-			System.out.println("Has salido del gestor...");
 			break;
 		default: 
 			//error
@@ -87,17 +97,31 @@ public class ProgramaTareas {
 		sc.nextLine();
 	}	
 	private static void addTarea(){
-		//Pedir titulo
-		System.out.println("Introduce el nombre de la tarea: ");
-		String titulo=sc.nextLine();
+		//pedir titulo de la tarea 
 		//crear tarea
-		Tarea t1=new Tarea(titulo);
+		Tarea t=new Tarea(pedirTitulo());
 		//pedir al gestor de tareas que añada esta tarea
-		gt.addTarea(t1);
+		gt.addTarea(t);
 	}
-	private static void finTarea(){
-		//finalizar tarea
-		
+	private static void finalizarTarea(){
+		//pedir titulo de la tarea 
+		//pedir al gestor que finalice tarea
+		gt.finTarea(pedirTitulo());
+	}
+	private static String pedirTitulo(){
+		//pedir titulo de la tarea 
+		System.out.println("Titulo: ");
+		String titulo=sc.nextLine();
+		return titulo;
+	}
+	private static void listarTareas(int tipoListado){
+		//pedir al gestor todas las tareas
+		Tarea[] lstTareas=gt.getTareas(tipoListado);
+		//recorrer el array de tareas e imprimirlas
+		for(int i=0;i<lstTareas.length;i++){//=(Tarea t:lstTareas)
+			Tarea t=lstTareas[i];
+			System.out.println(lstTareas[i]);
+		}
 	}
 	
-}
+}//class
