@@ -20,13 +20,26 @@ public class GestorTareas {
 		FileReader fr = null;
 
 		try {
+			//inicializar el arrayList de tareas
+			lstTareas=new ArrayList<Tarea>();
+			//abre fichero
 			fr = new FileReader(FILENAME);
+			//para que vaya mas rapido
 			br = new BufferedReader(fr);
 			String linea;
-			br = new BufferedReader(new FileReader(FILENAME));
+			//lee la linea entera y la guarda en la variable linea mientras que no este vacia
 			while ((linea = br.readLine()) != null) {
-				//trozear la linea
-				linea.split("");
+				//trozear la informacion
+				String [] datos=linea.split(",");
+				String titulo=datos[0];
+				boolean hecho=Boolean.parseBoolean(datos[1].trim());
+				//crear una tarea con la informacion
+				Tarea t =new Tarea(titulo);
+				if(hecho){
+					t.finalizar();
+				}
+				//añadir la tarea a la lista de tareas
+				this.lstTareas.add(t);
 			}
 
 		} catch (IOException e) {
@@ -61,7 +74,7 @@ public class GestorTareas {
 			bw = new BufferedWriter(fw);
 			//Recorremos el array de las tareas
 			for(Tarea t:lstTareas){
-				bw.write(t.toString()+", "+t.isHecho()+"\r\n");
+				bw.write(t.toString()+","+t.isHecho()+"\r\n");
 			}
 					
 
