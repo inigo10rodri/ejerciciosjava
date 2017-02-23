@@ -121,8 +121,7 @@ public class GestorTareas {
 		}
 		return LISTAR_NO_REALIZADAS;
 	}
-	public Tarea[] getTareas(int tipo){
-		
+	public Tarea[] getTareas(int tipo){		
 		if(tipo==LISTAR_TODAS){
 			return lstTareas.toArray(new Tarea[0]);
 		}else{
