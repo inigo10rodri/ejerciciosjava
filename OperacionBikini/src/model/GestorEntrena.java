@@ -90,9 +90,13 @@ public class GestorEntrena {
 		lstEntrenas.remove(index);
 		guardarDatos();
 	}
-	public void modEntrena(int index,Entrena ent){
-		lstEntrenas.set(index,ent);
-		guardarDatos();
+	public void modEntrena(Entrena old,Entrena nnew){
+		for(int i=0;i<lstEntrenas.size();i++){
+			if(!old.equals(nnew)){
+				lstEntrenas.add(nnew);
+				guardarDatos();
+			}
+		}
 	}
 	public ArrayList<Entrena> getEntrenas(){		
 		return lstEntrenas;		
