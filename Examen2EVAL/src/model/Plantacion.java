@@ -73,11 +73,12 @@ public class Plantacion {
 		this.cantRec = cantRec;
 	}
 
+	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "FechaPlan: "+formatoFechaPlan.format(getFechaPlan())+" Parcela: "+getParcela()+" Especie: "+getEspecie();
-	}//toString
+		return parcela + ":" + fechaPlan+ ":"+ fechaRec+":"+ especie+":"+ cantPlant;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		//si tienen la misma parcela y fecha de plantacion sera la misma plantacion

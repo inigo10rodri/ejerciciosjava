@@ -21,8 +21,6 @@ public class GestorPlantaciones {
 		FileReader fr = null;
 
 		try {
-			//inicializar el arrayList de parcelas
-			lstParcelas=new ArrayList<Plantacion>();
 			//abre fichero
 			fr = new FileReader(FILENAME);
 			//para que vaya mas rapido
@@ -68,18 +66,17 @@ public class GestorPlantaciones {
 	public void guardarParcelas(){
 		BufferedWriter bw = null;
 		FileWriter fw = null;
-
 		try {
 
 			fw = new FileWriter(FILENAME);
 			bw = new BufferedWriter(fw);
 			//Recorremos el array de las parcelas
 			for(Plantacion p:lstParcelas){
-				bw.write(p+":");
+				String datos="Parcela: "+p.getParcela()+": Fecha plantacion: "+p.getFechaPlan()+": Fecha recogida: "+p.getFechaRec()+": Especie: "+
+			p.getEspecie()+": Cantidad plantada: "+p.getCantPlant()
+				;
+				bw.write(datos+"\r\n");
 			}
-					
-
-			System.out.println("");
 
 		} catch (IOException e) {
 
@@ -119,11 +116,7 @@ public class GestorPlantaciones {
 		return null;
 	}
 	public ArrayList<Plantacion> getPlantaciones(){
-		for(int i=0;i<lstParcelas.size();i++){
-			ArrayList<Plantacion> p=lstParcelas;
-			return lstParcelas;
-		}
-		return null;
+		return lstParcelas;
 	}
 	public ArrayList<Plantacion> getPlanRecoger(){
 		for(int i=0;i<lstParcelas.size();i++){

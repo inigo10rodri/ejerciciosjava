@@ -98,12 +98,13 @@ public class Programa {
 		//Pedir parcela
 		System.out.println("Introduce la parcela: ");
 		int parcela=sc.nextInt();
+		sc.nextLine();
 		//Pedir fecha plantacion
 		System.out.print("Fecha plantacion (YYYY/MM/DD): ");
 		String fechaPlant = sc.nextLine();
 		Date fechaPlanta = formatoFechaPlan.parse(fechaPlant);
 		//Pedir fecha recogida
-		System.out.print("Fecha plantacion (YYYY/MM/DD): ");
+		System.out.print("Fecha recogida (YYYY/MM/DD): ");
 		String fechaRecog = sc.nextLine();
 		Date fechaReco = formatoFechaRec.parse(fechaRecog);
 		//Pedir especie
