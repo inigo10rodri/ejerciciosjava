@@ -2,9 +2,12 @@ package model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,6 +15,7 @@ public class GestorPlantaciones {
 	
 	private ArrayList<Plantacion> lstParcelas= new ArrayList<Plantacion>();
 	private static final String FILENAME = "plantacion.txt";
+	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
 	//contructora
 	public GestorPlantaciones(){
 		leerParcelas();
@@ -31,8 +35,20 @@ public class GestorPlantaciones {
 				//trozear la informacion
 				String [] datos=linea.split(":");
 				int parcela=Integer.parseInt(datos[0]);
-				Date fechaPlan=new Date(datos[1]);
-				Date fechaRec=new Date(datos[2]);
+				Date fechaPlan=null;
+				try {
+					fechaPlan=sdf.parse(datos[1]);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Date fechaRec=null;
+				try {
+					fechaRec=sdf.parse(datos[2]);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				String especie= datos[3];
 				int cantPlant=Integer.parseInt(datos[4]);
 				//crear una plantacion con la informacion
@@ -41,8 +57,9 @@ public class GestorPlantaciones {
 				lstParcelas.add(p);
 			}
 
-		} catch (IOException e) {
-
+		} catch(FileNotFoundException fnde){
+			System.out.println("No hay datos...");
+		}catch (IOException e) {
 			e.printStackTrace();
 
 		} finally {
@@ -72,8 +89,8 @@ public class GestorPlantaciones {
 			bw = new BufferedWriter(fw);
 			//Recorremos el array de las parcelas
 			for(Plantacion p:lstParcelas){
-				String datos="Parcela: "+p.getParcela()+": Fecha plantacion: "+p.getFechaPlan()+": Fecha recogida: "+p.getFechaRec()+": Especie: "+
-			p.getEspecie()+": Cantidad plantada: "+p.getCantPlant()
+				String datos=p.getParcela()+":"+sdf.format(p.getFechaPlan())+":"+sdf.format(p.getFechaRec())+":"+
+			p.getEspecie()+":"+p.getCantPlant()
 				;
 				bw.write(datos+"\r\n");
 			}

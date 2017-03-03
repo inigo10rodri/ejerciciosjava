@@ -13,8 +13,7 @@ public class Plantacion {
 	private String especie;
 	private int cantPlant;
 	private int cantRec;
-	private DateFormat formatoFechaPlan = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
-	
+	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
 	//Constructora
 	public Plantacion (int parcela, Date fechaPlan, Date fechaRec, String especie, int cantPlan){
 		setParcela(parcela);
@@ -24,6 +23,11 @@ public class Plantacion {
 		setCantPlant(cantPlan);
 	}
 	
+	public Plantacion(int parcela2, Date fechaPlant) {
+		setParcela(parcela2);
+		setFechaPlan(fechaPlant);
+	}
+
 	//getters y setters
 	public int getParcela() {
 		return parcela;
@@ -76,7 +80,7 @@ public class Plantacion {
 	
 	@Override
 	public String toString() {
-		return parcela + ":" + fechaPlan+ ":"+ fechaRec+":"+ especie+":"+ cantPlant;
+		return parcela + ":" + sdf.format(fechaPlan)+ ":"+ especie +":" + cantRec;
 	}
 
 	@Override
@@ -84,7 +88,7 @@ public class Plantacion {
 		//si tienen la misma parcela y fecha de plantacion sera la misma plantacion
 		if(obj instanceof Plantacion){
 			Plantacion plant=(Plantacion) obj;
-			if(fechaPlan==plant.fechaPlan && parcela==plant.parcela){
+			if((fechaPlan.compareTo(plant.getFechaPlan())<0) && parcela==plant.getParcela()){
 				return true;
 			}
 		}				

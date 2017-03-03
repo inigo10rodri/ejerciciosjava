@@ -16,8 +16,8 @@ import model.Plantacion;
 public class Programa {
 	
 	private static Scanner sc=new Scanner(System.in);
-	private static DateFormat formatoFechaPlan = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
-	private static DateFormat formatoFechaRec = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+	private static DateFormat formatoFechaPlan = new SimpleDateFormat("YYYY/MM/dd");
+	private static DateFormat formatoFechaRec = new SimpleDateFormat("YYYY/MM/dd");
 	private static int OPCION_SALIR=5;
 	private static GestorPlantaciones gp=new GestorPlantaciones();
 
@@ -72,7 +72,7 @@ public class Programa {
 			Listar();
 			break;
 		case 4:
-			
+			Alertas();
 			break;
 		case 5: 
 			//Salir
@@ -92,7 +92,6 @@ public class Programa {
 		Plantacion p=pedirDatosPlantacion();
 		//Añadir al gestor
 		gp.plantar(p);
-		
 	}
 	private static Plantacion pedirDatosPlantacion() throws ParseException {
 		//Pedir parcela
@@ -117,24 +116,32 @@ public class Programa {
 		return p;
 	}
 	private static void Recolectar() throws ParseException {
-		//pedir datos necesarios
-		Plantacion p=pedirDatosPlantacion();
+		//Pedir parcela
+		System.out.println("Introduce la parcela: ");
+		int parcela=sc.nextInt();
+		sc.nextLine();
+		//Pedir fecha plantacion
+		System.out.print("Fecha plantacion (YYYY/MM/DD): ");
+		String fechaPlant = sc.nextLine();
+		Date fechaPlanta = formatoFechaPlan.parse(fechaPlant);
 		//pedir cantidad recolectada
 		System.out.println("Cantidad recolectada: ");
 		int cantRec=sc.nextInt();
-		//añadir añ gestor
-		gp.recolectar(p.getParcela(), p.getFechaPlan(), cantRec);
-		
+		Plantacion p = new Plantacion(parcela,fechaPlanta);
+		int indice;
+		indice=gp.getPlantaciones().indexOf(p);
+		gp.getPlantaciones().get(indice).setCantRec(cantRec);
 	}
 	private static void Listar(){
 		//pedir al gestor todas las plantaciones
 		ArrayList<Plantacion> lstParcelas=gp.getPlantaciones();
 		//recorrer el array de plantaciones e imprimirlas
 			for(int i=0;i<lstParcelas.size();i++){
-				ArrayList<Plantacion> p=lstParcelas;
-				System.out.println(lstParcelas);
+				System.out.println("Plantacion: "+lstParcelas.get(i).toString());
 			}
 	}
-	
+	private static void Alertas(){
+		
+	}
 
 }
