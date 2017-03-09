@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="Zinemaldia.datos.Pelicula"/>
 <fullyQualifiedTypeName name="Agenda.datos.Amigos"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="gestionNotas.model.Alumno"/>
 <fullyQualifiedTypeName name="gestionNotas.model.Asignatura"/>
 <fullyQualifiedTypeName name="java.lang.Class"/>
@@ -33,4 +32,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>
