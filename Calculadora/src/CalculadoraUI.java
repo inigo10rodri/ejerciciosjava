@@ -18,8 +18,13 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
-public class CalculadoraUI extends JFrame {
+public class CalculadoraUI extends JFrame implements ItemListener {
 
 	private JPanel contentPane;
 	private JTextField txtNumero1;
@@ -53,7 +58,50 @@ public class CalculadoraUI extends JFrame {
 	public CalculadoraUI() {
 		setTitle("SuperCalculator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 530, 207);
+		setBounds(100, 100, 530, 245);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnOperaciones = new JMenu("Operaciones");
+		menuBar.add(mnOperaciones);
+		
+		JMenuItem mntmSuma = new JMenuItem("Suma");
+		mntmSuma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				calcularResultado("+");
+			}
+		});
+		mnOperaciones.add(mntmSuma);
+		
+		JMenuItem mntmResta = new JMenuItem("Resta");
+		mnOperaciones.add(mntmResta);
+		
+		JMenuItem mntmProducto = new JMenuItem("Producto");
+		mnOperaciones.add(mntmProducto);
+		
+		JMenuItem mntmDivision = new JMenuItem("Division");
+		mnOperaciones.add(mntmDivision);
+		
+		JMenu mnOtros = new JMenu("Otros");
+		mnOperaciones.add(mnOtros);
+		
+		JMenuItem mntmOpcion = new JMenuItem("Opcion1");
+		mnOtros.add(mntmOpcion);
+		
+		JMenuItem mntmOpcion_1 = new JMenuItem("Opcion2");
+		mnOtros.add(mntmOpcion_1);
+		
+		JMenuItem mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Estas seguro que desea salir?","Seleccione una opcion", JOptionPane.YES_NO_OPTION);
+				if (opcion == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		menuBar.add(mntmSalir);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -92,7 +140,7 @@ public class CalculadoraUI extends JFrame {
 				calcularResultado("+");
 			}
 		});
-		btnSuma.setBounds(10, 106, 41, 23);
+		btnSuma.setBounds(10, 129, 41, 23);
 		contentPane.add(btnSuma);
 
 		JButton btnResta = new JButton("-");
@@ -101,7 +149,7 @@ public class CalculadoraUI extends JFrame {
 				calcularResultado("-");
 			}
 		});
-		btnResta.setBounds(60, 106, 41, 23);
+		btnResta.setBounds(60, 129, 41, 23);
 		contentPane.add(btnResta);
 
 		JButton btnMultiplicacion = new JButton("*");
@@ -110,7 +158,7 @@ public class CalculadoraUI extends JFrame {
 				calcularResultado("*");
 			}
 		});
-		btnMultiplicacion.setBounds(110, 106, 41, 23);
+		btnMultiplicacion.setBounds(110, 129, 41, 23);
 		contentPane.add(btnMultiplicacion);
 
 		JButton btnDivision = new JButton("/");
@@ -119,7 +167,7 @@ public class CalculadoraUI extends JFrame {
 				calcularResultado("/");
 			}
 		});
-		btnDivision.setBounds(160, 106, 37, 23);
+		btnDivision.setBounds(160, 129, 37, 23);
 		contentPane.add(btnDivision);
 
 		JButton btnCE = new JButton("CE");
@@ -128,7 +176,7 @@ public class CalculadoraUI extends JFrame {
 				calcularResultado("CE");
 			}
 		});
-		btnCE.setBounds(206, 106, 52, 23);
+		btnCE.setBounds(206, 129, 52, 23);
 		contentPane.add(btnCE);
 		
 		chkPositivo = new JCheckBox("Positivo");
@@ -147,47 +195,47 @@ public class CalculadoraUI extends JFrame {
 		contentPane.add(chkNeutro);
 		
 		JRadioButton rdbtnSuma = new JRadioButton("+");
-		rdbtnSuma.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				// arg0-->devuelve el elemento que ha creado ese evento
-				JRadioButton rdbtnSel = (JRadioButton) arg0.getSource();
-				if (rdbtnSel.isSelected()) {
-					calcularResultado(rdbtnSel.getText());
-				}
-			}
-		});
+		rdbtnSuma.addItemListener(this);
 		buttonGroup.add(rdbtnSuma);
-		rdbtnSuma.setBounds(345, 15, 109, 23);
+		rdbtnSuma.setBounds(345, 15, 52, 23);
 		contentPane.add(rdbtnSuma);
 		
 		JRadioButton rdbtnResta = new JRadioButton("-");
-		rdbtnResta.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {
-			}
-		});
+		rdbtnResta.addItemListener(this);
 		buttonGroup.add(rdbtnResta);
-		rdbtnResta.setBounds(345, 53, 109, 23);
+		rdbtnResta.setBounds(345, 53, 52, 23);
 		contentPane.add(rdbtnResta);
 		
 		JRadioButton rdbtnProd = new JRadioButton("*");
-		rdbtnProd.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-			}
-		});
+		rdbtnProd.addItemListener(this);
 		buttonGroup.add(rdbtnProd);
-		rdbtnProd.setBounds(345, 91, 109, 23);
+		rdbtnProd.setBounds(345, 91, 52, 23);
 		contentPane.add(rdbtnProd);
 		
 		JRadioButton rdbtnDiv = new JRadioButton("/");
-		rdbtnDiv.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {
+		rdbtnDiv.addItemListener(this);
+		buttonGroup.add(rdbtnDiv);
+		rdbtnDiv.setBounds(345, 129, 52, 23);
+		contentPane.add(rdbtnDiv);
+		
+		JComboBox cmbOperaciones = new JComboBox();
+		cmbOperaciones.setModel(new DefaultComboBoxModel(new String[] {"(selecciona)", "+", "-", "*", "/"}));
+		cmbOperaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(cmbOperaciones.getSelectedIndex()>0){
+					calcularResultado((String)cmbOperaciones.getSelectedItem());
+				}
 			}
 		});
-		buttonGroup.add(rdbtnDiv);
-		rdbtnDiv.setBounds(345, 129, 109, 23);
-		contentPane.add(rdbtnDiv);
+		
+		cmbOperaciones.setBounds(120, 92, 97, 20);
+		contentPane.add(cmbOperaciones);
+		
+		JLabel lblOperacion = new JLabel("Operacion:");
+		lblOperacion.setBounds(52, 89, 65, 14);
+		contentPane.add(lblOperacion);
 	}
-
+	
 	private void calcularResultado(String op) {
 		double resul = 0;
 		double num1 = 0;
@@ -233,7 +281,7 @@ public class CalculadoraUI extends JFrame {
 		}
 		//Mostrar en txtResultado el resultado de las operaciones
 		txtResultado.setText(String.valueOf(resul));
-		//actualizar la informacion de los checkBOx
+		//actualizar la informacion de los checkBox
 		actualizarCheckBox(resul);
 	}
 
@@ -248,5 +296,12 @@ public class CalculadoraUI extends JFrame {
 		} else {
 			chkNeutro.setSelected(true);
 		}		
+	}
+	public void itemStateChanged(ItemEvent arg0) {
+		// arg0-->devuelve el elemento que ha creado ese evento
+		JRadioButton rdbtnSel = (JRadioButton) arg0.getSource();
+		if (rdbtnSel.isSelected()) {
+			calcularResultado(rdbtnSel.getText());
+		}
 	}
 }
