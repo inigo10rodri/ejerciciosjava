@@ -58,7 +58,7 @@ public class GestorPlantaciones {
 			}
 
 		} catch(FileNotFoundException fnde){
-			System.out.println("No hay datos...");
+			System.out.println("Guardando...");
 		}catch (IOException e) {
 			e.printStackTrace();
 
