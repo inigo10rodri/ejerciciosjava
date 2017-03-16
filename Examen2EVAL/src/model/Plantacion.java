@@ -80,7 +80,7 @@ public class Plantacion {
 	
 	@Override
 	public String toString() {
-		return parcela + ":" + sdf.format(fechaPlan)+ ":"+ especie +":" + cantRec;
+		return parcela + ":" + sdf.format(fechaPlan)+ ":"+ especie +":" + cantPlant;
 	}
 
 	@Override

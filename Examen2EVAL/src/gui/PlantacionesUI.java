@@ -12,11 +12,13 @@ import model.Plantacion;
 
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.DefaultListModel;
 import javax.swing.DropMode;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -33,6 +35,7 @@ public class PlantacionesUI extends JFrame {
 	private JTextField txtParcela;
 	private JList listPlantaciones;
 	private GestorPlantaciones gp=new GestorPlantaciones();
+	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
 
 	/**
 	 * Launch the application.
@@ -70,8 +73,12 @@ public class PlantacionesUI extends JFrame {
 		listPlantaciones = new JList();
 		listPlantaciones.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent arg0) {
-				//devuelve el elemento
-				System.out.println(listPlantaciones.getSelectedValue());
+				//Para que aparezca solamente una vez el elemento
+				if(!arg0.getValueIsAdjusting()){
+					mostrarDatos((Plantacion)listPlantaciones.getSelectedValue());
+					//devuelve el elemento
+					System.out.println(listPlantaciones.getSelectedValue());
+				}					
 			}
 		});
 		listPlantaciones.setBounds(21, 44, 148, 153);
@@ -163,5 +170,13 @@ public class PlantacionesUI extends JFrame {
 		}
 		//pasar el model Jlist
 		listPlantaciones.setModel(dlm);
+	}
+	//cargar la informacion de una plantacion en las cajas de texto
+	private void mostrarDatos(Plantacion p){		
+		txtParcela.setText(String.valueOf(p.getParcela()));
+		txtFechaPlant.setText(sdf.format(p.getFechaPlan()));
+		txtEspecie.setText(p.getEspecie());
+		txtCantPlant.setText(p.getCantPlant() + "");	
+		txtFechaRec.setText(sdf.format(p.getFechaRec()));
 	}
 }
