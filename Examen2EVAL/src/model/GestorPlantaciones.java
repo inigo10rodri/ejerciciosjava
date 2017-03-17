@@ -114,10 +114,10 @@ public class GestorPlantaciones {
 		lstParcelas.add(p);
 		guardarParcelas();
 	}
-	public void recolectar(int parcela,Date fechaPlan,int cantRec){
+	public void recolectar(int parcela,Date fechaRec,int cantRec){
 		for(int i=0;i<lstParcelas.size();i++){
 			Plantacion p=lstParcelas.get(i);
-			if(p.getParcela()==parcela && p.getFechaPlan().equals(fechaPlan)){
+			if(p.getParcela()==parcela && p.getFechaRec().equals(fechaRec)){
 				p.setCantRec(cantRec);				
 			}
 			guardarParcelas();

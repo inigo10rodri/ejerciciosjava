@@ -22,11 +22,6 @@ public class Plantacion {
 		setEspecie(especie);
 		setCantPlant(cantPlan);
 	}
-	
-	public Plantacion(int parcela2, Date fechaPlant) {
-		setParcela(parcela2);
-		setFechaPlan(fechaPlant);
-	}
 
 	//getters y setters
 	public int getParcela() {

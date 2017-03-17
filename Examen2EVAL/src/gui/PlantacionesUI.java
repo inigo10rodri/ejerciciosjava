@@ -132,6 +132,11 @@ public class PlantacionesUI extends JFrame {
 		contentPane.add(btnNuevo);
 		
 		JButton btnRecolectar = new JButton("Recolectar");
+		btnRecolectar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnRecClick();
+			}
+		});
 		btnRecolectar.setBounds(131, 227, 100, 23);
 		contentPane.add(btnRecolectar);
 		
@@ -160,6 +165,12 @@ public class PlantacionesUI extends JFrame {
 	private void btnNuevoClick(){
 		PlantacionesEditUI frmPlantEdit=new PlantacionesEditUI(this,gp);
 		frmPlantEdit.setVisible(true);
+	}
+	private void btnRecClick(){
+		int selected_index= listPlantaciones.getSelectedIndex();
+		Plantacion plantacion_seleccionada= (Plantacion)listPlantaciones.getModel().getElementAt(selected_index);
+		PlantacionesRecUI frmPlantRec=new PlantacionesRecUI(this,gp);
+		frmPlantRec.setVisible(true);
 	}
 	//muestra los datos del parametro en el jList
 	public void actualizarListado(ArrayList<Plantacion> lstPlantas){
