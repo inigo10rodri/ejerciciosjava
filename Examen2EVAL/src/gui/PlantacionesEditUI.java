@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -85,6 +86,11 @@ public class PlantacionesEditUI extends JFrame {
 			contentPane.add(btnAceptar);
 			
 			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					btnCancelarClick();
+				}
+			});
 			btnCancelar.setBounds(131, 207, 89, 23);
 			contentPane.add(btnCancelar);
 			
@@ -133,6 +139,12 @@ public class PlantacionesEditUI extends JFrame {
 			frmPrincipal.actualizarListado(gp.getPlantaciones());
 			//descargar la ventana
 			this.dispose();
+		}
+		private void btnCancelarClick(){
+			int opcion = JOptionPane.showConfirmDialog(null, "¿Estas seguro que desea salir?","Seleccione una opcion", JOptionPane.YES_NO_OPTION);
+			if (opcion == JOptionPane.YES_OPTION) {
+				this.dispose();
+			}
 		}
 }
 

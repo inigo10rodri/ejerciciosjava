@@ -75,9 +75,9 @@ public class PlantacionesUI extends JFrame {
 			public void valueChanged(ListSelectionEvent arg0) {
 				//Para que aparezca solamente una vez el elemento
 				if(!arg0.getValueIsAdjusting()){
-					mostrarDatos((Plantacion)listPlantaciones.getSelectedValue());
+						mostrarDatos((Plantacion)listPlantaciones.getSelectedValue());
 					//devuelve el elemento
-					System.out.println(listPlantaciones.getSelectedValue());
+					System.out.println(listPlantaciones.getSelectedValue());					
 				}					
 			}
 		});
@@ -141,6 +141,14 @@ public class PlantacionesUI extends JFrame {
 		contentPane.add(btnRecolectar);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Estas seguro que desea salir?","Seleccione una opcion", JOptionPane.YES_NO_OPTION);
+				if (opcion == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
 		btnSalir.setBounds(237, 227, 89, 23);
 		contentPane.add(btnSalir);
 		
@@ -168,8 +176,11 @@ public class PlantacionesUI extends JFrame {
 	}
 	private void btnRecClick(){
 		int selected_index= listPlantaciones.getSelectedIndex();
+		if(selected_index<0){
+			JOptionPane.showMessageDialog(null,"Debes seleccionar la plantacion que quieres recolectar!");
+		}
 		Plantacion plantacion_seleccionada= (Plantacion)listPlantaciones.getModel().getElementAt(selected_index);
-		PlantacionesRecUI frmPlantRec=new PlantacionesRecUI(this,gp);
+		PlantacionesRecUI frmPlantRec=new PlantacionesRecUI(this,gp,plantacion_seleccionada);
 		frmPlantRec.setVisible(true);
 	}
 	//muestra los datos del parametro en el jList
@@ -183,11 +194,12 @@ public class PlantacionesUI extends JFrame {
 		listPlantaciones.setModel(dlm);
 	}
 	//cargar la informacion de una plantacion en las cajas de texto
-	private void mostrarDatos(Plantacion p){		
+	public void mostrarDatos(Plantacion p){		
 		txtParcela.setText(String.valueOf(p.getParcela()));
 		txtFechaPlant.setText(sdf.format(p.getFechaPlan()));
 		txtEspecie.setText(p.getEspecie());
 		txtCantPlant.setText(p.getCantPlant() + "");	
 		txtFechaRec.setText(sdf.format(p.getFechaRec()));
+		txtCantRec.setText(p.getCantRec()+"");
 	}
 }

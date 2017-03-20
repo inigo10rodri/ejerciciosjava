@@ -11,6 +11,7 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -26,15 +27,17 @@ public class PlantacionesRecUI extends JFrame {
 	private JTextField txtCantRec;
 	private GestorPlantaciones gp;
 	private PlantacionesUI frmPrincipal;
-	private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
+	private Plantacion plant_sel;
 
 
 	/**
 	 * Create the frame.
 	 */
-	public PlantacionesRecUI(PlantacionesUI frmPrincipal, GestorPlantaciones gp) {
-		this.frmPrincipal=frmPrincipal;	
+	public PlantacionesRecUI(PlantacionesUI frmPrincipal, GestorPlantaciones gp, Plantacion plant_sel) {
 		//asignar el mismo gestor de plantaciones
+			this.plant_sel=plant_sel; // plantacion seleccionada
+			this.frmPrincipal=frmPrincipal;	
 			this.gp=gp;
 			setTitle("Recolectar Plantaciones");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,10 +48,10 @@ public class PlantacionesRecUI extends JFrame {
 			contentPane.setLayout(null);
 			
 			JLabel lblFechaRecogida = new JLabel("Fecha Recogida:");
-			lblFechaRecogida.setBounds(21, 36, 85, 14);
+			lblFechaRecogida.setBounds(21, 36, 106, 14);
 			contentPane.add(lblFechaRecogida);
 			
-			txtFechaRec = new JTextField();
+			txtFechaRec = new JTextField(this.sdf.format(plant_sel.getFechaRec()));
 			txtFechaRec.setBounds(160, 41, 86, 20);
 			contentPane.add(txtFechaRec);
 			txtFechaRec.setColumns(10);
@@ -63,14 +66,19 @@ public class PlantacionesRecUI extends JFrame {
 			contentPane.add(btnAceptar);
 			
 			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					btnCancelarClick();
+				}
+			});
 			btnCancelar.setBounds(131, 125, 89, 23);
 			contentPane.add(btnCancelar);
 			
 			JLabel lblParcela = new JLabel("Parcela:");
-			lblParcela.setBounds(21, 11, 46, 14);
+			lblParcela.setBounds(21, 11, 59, 14);
 			contentPane.add(lblParcela);
 			
-			txtParcela = new JTextField();
+			txtParcela = new JTextField(this.plant_sel.getParcela() + "");
 			txtParcela.setBounds(160, 12, 86, 20);
 			contentPane.add(txtParcela);
 			txtParcela.setColumns(10);
@@ -96,13 +104,18 @@ public class PlantacionesRecUI extends JFrame {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//crear una plantacion con datos
-			Plantacion p=new Plantacion(parcela,fechaRec,cantRec);
-			//decir al gestor de plantaciones que añada la plantacion
-			gp.plantar(p);
+			plant_sel.setCantRec(cantRec);
+			//devolverle los datos a recolectar
+			gp.recolectar(parcela,fechaRec,cantRec);
 			//actualizar la lista de la ventana principal
-			frmPrincipal.actualizarListado(gp.getPlantaciones());
+			frmPrincipal.mostrarDatos(plant_sel);
 			//descargar la ventana
 			this.dispose();
+		}
+		private void btnCancelarClick(){
+			int opcion = JOptionPane.showConfirmDialog(null, "¿Estas seguro que desea salir?","Seleccione una opcion", JOptionPane.YES_NO_OPTION);
+			if (opcion == JOptionPane.YES_OPTION) {
+				this.dispose();
+			}
 		}
 }
