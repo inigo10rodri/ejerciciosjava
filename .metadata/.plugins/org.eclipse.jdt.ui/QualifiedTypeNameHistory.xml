@@ -36,4 +36,5 @@
 <fullyQualifiedTypeName name="model.Plantacion"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
 </qualifiedTypeNameHistroy>

@@ -127,7 +127,7 @@ public class Programa {
 		//pedir cantidad recolectada
 		System.out.println("Cantidad recolectada: ");
 		int cantRec=sc.nextInt();
-		Plantacion p = new Plantacion(parcela,fechaPlanta);
+		Plantacion p = new Plantacion(parcela,fechaPlanta, fechaPlanta, fechaPlant, cantRec);
 		int indice;
 		indice=gp.getPlantaciones().indexOf(p);
 		gp.getPlantaciones().get(indice).setCantRec(cantRec);

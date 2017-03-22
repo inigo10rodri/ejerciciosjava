@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import model.GestorPlantaciones;
 import model.Plantacion;
+import javax.swing.JSlider;
 
 public class PlantacionesRecUI extends JFrame {
 
@@ -29,6 +30,7 @@ public class PlantacionesRecUI extends JFrame {
 	private PlantacionesUI frmPrincipal;
 	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
 	private Plantacion plant_sel;
+	private JTextField txtCantPlant;
 
 
 	/**
@@ -41,7 +43,7 @@ public class PlantacionesRecUI extends JFrame {
 			this.gp=gp;
 			setTitle("Recolectar Plantaciones");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 302, 215);
+			setBounds(100, 100, 333, 236);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
@@ -62,7 +64,7 @@ public class PlantacionesRecUI extends JFrame {
 					btnAceptarClick();
 				}
 			});
-			btnAceptar.setBounds(21, 125, 89, 23);
+			btnAceptar.setBounds(24, 164, 89, 23);
 			contentPane.add(btnAceptar);
 			
 			JButton btnCancelar = new JButton("Cancelar");
@@ -71,7 +73,7 @@ public class PlantacionesRecUI extends JFrame {
 					btnCancelarClick();
 				}
 			});
-			btnCancelar.setBounds(131, 125, 89, 23);
+			btnCancelar.setBounds(160, 164, 89, 23);
 			contentPane.add(btnCancelar);
 			
 			JLabel lblParcela = new JLabel("Parcela:");
@@ -84,13 +86,27 @@ public class PlantacionesRecUI extends JFrame {
 			txtParcela.setColumns(10);
 			
 			JLabel lblCantidadRecogida = new JLabel("Cantidad Recogida:");
-			lblCantidadRecogida.setBounds(21, 78, 127, 14);
+			lblCantidadRecogida.setBounds(21, 102, 127, 14);
 			contentPane.add(lblCantidadRecogida);
 			
 			txtCantRec = new JTextField();
-			txtCantRec.setBounds(160, 75, 86, 20);
+			txtCantRec.setBounds(160, 99, 86, 20);
 			contentPane.add(txtCantRec);
 			txtCantRec.setColumns(10);
+			//http://javapiola.blogspot.com.es/2009/11/aprendiendo-lo-basico-de-jslider-y.html
+			JSlider sliderCantRec = new JSlider(JSlider.HORIZONTAL,0,txtCantPlant.getText(),50);
+			sliderCantRec.setMaximum(1000);
+			sliderCantRec.setBounds(75, 130, 200, 23);
+			contentPane.add(sliderCantRec);
+			
+			JLabel lblCantidadPlantada = new JLabel("Cantidad Plantada:");
+			lblCantidadPlantada.setBounds(22, 77, 105, 14);
+			contentPane.add(lblCantidadPlantada);
+			
+			txtCantPlant = new JTextField(this.plant_sel.getCantPlant());
+			txtCantPlant.setBounds(160, 74, 86, 20);
+			contentPane.add(txtCantPlant);
+			txtCantPlant.setColumns(10);
 
 		}
 		private void btnAceptarClick(){

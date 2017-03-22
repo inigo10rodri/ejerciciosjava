@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.border.EmptyBorder;
 
 import model.GestorPlantaciones;
@@ -28,7 +29,7 @@ public class PlantacionesUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtFechaPlant;
-	private JTextField txtCantPlant;
+	private JSpinner txtCantPlant;
 	private JTextField txtFechaRec;
 	private JTextField txtCantRec;
 	private JTextField txtEspecie;
@@ -99,10 +100,9 @@ public class PlantacionesUI extends JFrame {
 		lblNewLabel.setBounds(179, 132, 127, 14);
 		contentPane.add(lblNewLabel);
 		
-		txtCantPlant = new JTextField();
+		txtCantPlant = new JSpinner();
 		txtCantPlant.setBounds(327, 124, 86, 20);
 		contentPane.add(txtCantPlant);
-		txtCantPlant.setColumns(10);
 		
 		JLabel lblFechaRecogida = new JLabel("Fecha Recogida:");
 		lblFechaRecogida.setBounds(179, 171, 127, 14);
@@ -169,6 +169,7 @@ public class PlantacionesUI extends JFrame {
 		txtParcela.setBounds(327, 15, 86, 20);
 		contentPane.add(txtParcela);
 		txtParcela.setColumns(10);
+		
 	}
 	private void btnNuevoClick(){
 		PlantacionesEditUI frmPlantEdit=new PlantacionesEditUI(this,gp);
@@ -198,8 +199,8 @@ public class PlantacionesUI extends JFrame {
 		txtParcela.setText(String.valueOf(p.getParcela()));
 		txtFechaPlant.setText(sdf.format(p.getFechaPlan()));
 		txtEspecie.setText(p.getEspecie());
-		txtCantPlant.setText(p.getCantPlant() + "");	
+		txtCantPlant.setValue(p.getCantPlant());
 		txtFechaRec.setText(sdf.format(p.getFechaRec()));
-		txtCantRec.setText(p.getCantRec()+"");
+		txtCantRec.setValue(p.getCantRec());
 	}
 }

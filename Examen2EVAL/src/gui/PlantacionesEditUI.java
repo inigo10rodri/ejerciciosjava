@@ -21,18 +21,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
 
 public class PlantacionesEditUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtFechaPlant;
-	private JTextField txtCantPlant;
+	private JSpinner txtCantPlant;
 	private JTextField txtFechaRec;
 	private JTextField txtEspecie;
 	private JTextField txtParcela;
 	private GestorPlantaciones gp;
 	private PlantacionesUI frmPrincipal;
-	private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
 
 	/**
 	 * Create the frame.
@@ -43,14 +44,14 @@ public class PlantacionesEditUI extends JFrame {
 			this.gp=gp;
 			setTitle("Edicion de Plantaciones");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 299, 299);
+			setBounds(100, 100, 398, 299);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
 			JLabel lblFechaPlantacion = new JLabel("Fecha Plantacion:");
-			lblFechaPlantacion.setBounds(21, 36, 85, 14);
+			lblFechaPlantacion.setBounds(21, 44, 100, 14);
 			contentPane.add(lblFechaPlantacion);
 			
 			txtFechaPlant = new JTextField();
@@ -59,13 +60,12 @@ public class PlantacionesEditUI extends JFrame {
 			txtFechaPlant.setColumns(10);
 			
 			JLabel lblNewLabel = new JLabel("Cantidad Plantada:");
-			lblNewLabel.setBounds(21, 122, 100, 14);
+			lblNewLabel.setBounds(21, 122, 114, 14);
 			contentPane.add(lblNewLabel);
 			
-			txtCantPlant = new JTextField();
-			txtCantPlant.setBounds(160, 121, 86, 20);
+			txtCantPlant = new JSpinner();
+			txtCantPlant.setBounds(160, 119, 86, 20);
 			contentPane.add(txtCantPlant);
-			txtCantPlant.setColumns(10);
 			
 			JLabel lblFechaRecogida = new JLabel("Fecha Recogida:");
 			lblFechaRecogida.setBounds(21, 161, 94, 14);
@@ -95,22 +95,23 @@ public class PlantacionesEditUI extends JFrame {
 			contentPane.add(btnCancelar);
 			
 			JLabel lblEspecie = new JLabel("Especie:");
-			lblEspecie.setBounds(21, 83, 65, 14);
+			lblEspecie.setBounds(21, 75, 65, 14);
 			contentPane.add(lblEspecie);
 			
 			txtEspecie = new JTextField();
-			txtEspecie.setBounds(160, 81, 86, 20);
+			txtEspecie.setBounds(160, 72, 86, 20);
 			contentPane.add(txtEspecie);
 			txtEspecie.setColumns(10);
 			
 			JLabel lblParcela = new JLabel("Parcela:");
-			lblParcela.setBounds(21, 11, 46, 14);
+			lblParcela.setBounds(21, 11, 65, 14);
 			contentPane.add(lblParcela);
 			
 			txtParcela = new JTextField();
 			txtParcela.setBounds(160, 12, 86, 20);
 			contentPane.add(txtParcela);
 			txtParcela.setColumns(10);
+			
 		}
 		private void btnAceptarClick(){
 			//leer los datos introducidos por el usuario
@@ -130,7 +131,7 @@ public class PlantacionesEditUI extends JFrame {
 				e.printStackTrace();
 			}
 			String especie=txtEspecie.getText();
-			int cantPlant=Integer.parseInt(txtCantPlant.getText());
+			int cantPlant=(int)(txtCantPlant.getValue());
 			//crear una plantacion con datos
 			Plantacion p=new Plantacion(parcela,fechaPlan,fechaRec,especie,cantPlant);
 			//decir al gestor de plantaciones que añada la plantacion
