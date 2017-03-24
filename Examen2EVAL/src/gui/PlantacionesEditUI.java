@@ -13,8 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import model.GestorPlantaciones;
-import model.Plantacion;
+import datos.Plantacion;
+import model.GestorPlantacionesFicheros;
+import model.IGestorPlantaciones;
 
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -31,14 +32,14 @@ public class PlantacionesEditUI extends JFrame {
 	private JTextField txtFechaRec;
 	private JTextField txtEspecie;
 	private JTextField txtParcela;
-	private GestorPlantaciones gp;
+	private IGestorPlantaciones gp;
 	private PlantacionesUI frmPrincipal;
 	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
 
 	/**
 	 * Create the frame.
 	 */
-	public PlantacionesEditUI(PlantacionesUI frmPrincipal, GestorPlantaciones gp) {
+	public PlantacionesEditUI(PlantacionesUI frmPrincipal, IGestorPlantaciones gp) {
 		this.frmPrincipal=frmPrincipal;	
 		//asignar el mismo gestor de plantaciones
 			this.gp=gp;

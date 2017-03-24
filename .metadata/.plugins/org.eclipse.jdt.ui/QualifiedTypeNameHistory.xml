@@ -37,4 +37,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
+<fullyQualifiedTypeName name="model.GestorPlantacionesFicheros"/>
+<fullyQualifiedTypeName name="model.IGestorPlantaciones"/>
 </qualifiedTypeNameHistroy>

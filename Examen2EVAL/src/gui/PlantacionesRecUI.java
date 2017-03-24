@@ -16,8 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import model.GestorPlantaciones;
-import model.Plantacion;
+import datos.Plantacion;
+import model.IGestorPlantaciones;
+
 import javax.swing.JSlider;
 
 public class PlantacionesRecUI extends JFrame {
@@ -26,7 +27,7 @@ public class PlantacionesRecUI extends JFrame {
 	private JTextField txtFechaRec;
 	private JTextField txtParcela;
 	private JTextField txtCantRec;
-	private GestorPlantaciones gp;
+	private IGestorPlantaciones gp;
 	private PlantacionesUI frmPrincipal;
 	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
 	private Plantacion plant_sel;
@@ -36,7 +37,7 @@ public class PlantacionesRecUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PlantacionesRecUI(PlantacionesUI frmPrincipal, GestorPlantaciones gp, Plantacion plant_sel) {
+	public PlantacionesRecUI(PlantacionesUI frmPrincipal, IGestorPlantaciones gp, Plantacion plant_sel) {
 		//asignar el mismo gestor de plantaciones
 			this.plant_sel=plant_sel; // plantacion seleccionada
 			this.frmPrincipal=frmPrincipal;	
@@ -94,10 +95,10 @@ public class PlantacionesRecUI extends JFrame {
 			contentPane.add(txtCantRec);
 			txtCantRec.setColumns(10);
 			//http://javapiola.blogspot.com.es/2009/11/aprendiendo-lo-basico-de-jslider-y.html
-			JSlider sliderCantRec = new JSlider(JSlider.HORIZONTAL,0,txtCantPlant.getText(),50);
+			/*JSlider sliderCantRec = new JSlider(JSlider.HORIZONTAL,0,txtCantPlant.getText(),50);
 			sliderCantRec.setMaximum(1000);
 			sliderCantRec.setBounds(75, 130, 200, 23);
-			contentPane.add(sliderCantRec);
+			contentPane.add(sliderCantRec);*/
 			
 			JLabel lblCantidadPlantada = new JLabel("Cantidad Plantada:");
 			lblCantidadPlantada.setBounds(22, 77, 105, 14);
