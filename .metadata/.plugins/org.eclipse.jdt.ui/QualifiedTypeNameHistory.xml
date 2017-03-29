@@ -39,4 +39,5 @@
 <fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
 <fullyQualifiedTypeName name="model.GestorPlantacionesFicheros"/>
 <fullyQualifiedTypeName name="model.IGestorPlantaciones"/>
+<fullyQualifiedTypeName name="model.GestorPlantacionesBBDD"/>
 </qualifiedTypeNameHistroy>

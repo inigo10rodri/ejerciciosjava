@@ -10,16 +10,17 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import datos.Plantacion;
-import model.GestorPlantaciones;
+import model.GestorPlantacionesBBDD;
+import model.GestorPlantacionesFicheros;
 
 
 public class Programa {
 	
 	private static Scanner sc=new Scanner(System.in);
-	private static DateFormat formatoFechaPlan = new SimpleDateFormat("YYYY/MM/dd");
-	private static DateFormat formatoFechaRec = new SimpleDateFormat("YYYY/MM/dd");
+	private static DateFormat formatoFechaPlan = new SimpleDateFormat("yyyy/MM/dd");
+	private static DateFormat formatoFechaRec = new SimpleDateFormat("yyyy/MM/dd");
 	private static int OPCION_SALIR=5;
-	private static GestorPlantaciones gp=new GestorPlantaciones();
+	private static GestorPlantacionesFicheros gp=new GestorPlantacionesFicheros();
 
 	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub

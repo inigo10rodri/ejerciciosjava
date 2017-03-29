@@ -7,38 +7,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class GestorBDSQLite{
-	private static final String RUTA_BD=".\\tareasbd.sqlite";
-	private static final String CREATE_TABLE="CREATE TABLE "
+public class GestorBDSQLite {
+	private static final String RUTA_BD = ".\\Plantaciones.sqlite";
+	private static final String CREATE_TABLE = "CREATE TABLE "
 			+ "'tareas' ('ID' INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , 'Titulo' TEXT, 'Hecho' INTEGER);";
-	private Connection cn=null;
-	private Statement st=null;
-	
-	public GestorBDSQLite(){
-		//cargar driver y conectar bd
-		try
-		{
-			//cargar el driver jdbc-sqlite
+	private Connection cn = null;
+	private Statement st = null;
+
+	public GestorBDSQLite() {
+		// cargar driver y conectar bd
+		try {
+			// cargar el driver jdbc-sqlite
 			Class.forName("org.sqlite.JDBC");
-			
-			//comprobar si existe la base de datos
+
+			// comprobar si existe la base de datos
 			File f = new File(RUTA_BD);
-			if(f.exists()) { 
-				//conectarnos la la bd
-				cn =DriverManager.getConnection("jdbc:sqlite:"+RUTA_BD);
+			if (f.exists()) {
+				// conectarnos la la bd
+				cn = DriverManager.getConnection("jdbc:sqlite:" + RUTA_BD);
 				st = cn.createStatement();
-			}else{
-				//si no existe la base de datos la crea
-				//conectarnos la la bd
-				cn =DriverManager.getConnection("jdbc:sqlite:"+RUTA_BD);
+			} else {
+				// si no existe la base de datos la crea
+				// conectarnos la la bd
+				cn = DriverManager.getConnection("jdbc:sqlite:" + RUTA_BD);
 				st = cn.createStatement();
 				st.executeUpdate(CREATE_TABLE);
 			}
-		}
-		catch (ClassNotFoundException ex){
+		} catch (ClassNotFoundException ex) {
 			System.out.println("sqlite driver not found");
-		}
-		catch(SQLException ex1){
+		} catch (SQLException ex1) {
 			System.out.println("Error abriendo bd");
 		}
 	}
@@ -56,7 +53,7 @@ public class GestorBDSQLite{
 
 	public void updateSQL(String sql) {
 		// TODO Auto-generated method stub
-		try{
+		try {
 			st.executeUpdate(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.border.EmptyBorder;
 
-
+import model.GestorPlantacionesBBDD;
 import model.GestorPlantacionesFicheros;
 import model.IGestorPlantaciones;
 
@@ -39,8 +39,8 @@ public class PlantacionesUI extends JFrame {
 	private JTextField txtEspecie;
 	private JTextField txtParcela;
 	private JList listPlantaciones;
-	private IGestorPlantaciones gp=new GestorPlantacionesFicheros();
-	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
+	private IGestorPlantaciones gp=new GestorPlantacionesBBDD();
+	private SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd");
 
 	/**
 	 * Launch the application.
@@ -185,10 +185,12 @@ public class PlantacionesUI extends JFrame {
 		int selected_index= listPlantaciones.getSelectedIndex();
 		if(selected_index<0){
 			JOptionPane.showMessageDialog(null,"Debes seleccionar la plantacion que quieres recolectar!");
+		} else{
+			Plantacion plantacion_seleccionada= (Plantacion)listPlantaciones.getModel().getElementAt(selected_index);
+			PlantacionesRecUI frmPlantRec=new PlantacionesRecUI(this,gp,plantacion_seleccionada);
+			frmPlantRec.setVisible(true);
 		}
-		Plantacion plantacion_seleccionada= (Plantacion)listPlantaciones.getModel().getElementAt(selected_index);
-		PlantacionesRecUI frmPlantRec=new PlantacionesRecUI(this,gp,plantacion_seleccionada);
-		frmPlantRec.setVisible(true);
+		
 	}
 	//muestra los datos del parametro en el jList
 	public void actualizarListado(ArrayList<Plantacion> lstPlantas){

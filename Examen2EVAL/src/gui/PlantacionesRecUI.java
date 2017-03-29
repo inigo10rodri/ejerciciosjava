@@ -29,9 +29,8 @@ public class PlantacionesRecUI extends JFrame {
 	private JTextField txtCantRec;
 	private IGestorPlantaciones gp;
 	private PlantacionesUI frmPrincipal;
-	private SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/dd");
+	private SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd");
 	private Plantacion plant_sel;
-	private JTextField txtCantPlant;
 
 
 	/**
@@ -87,27 +86,13 @@ public class PlantacionesRecUI extends JFrame {
 			txtParcela.setColumns(10);
 			
 			JLabel lblCantidadRecogida = new JLabel("Cantidad Recogida:");
-			lblCantidadRecogida.setBounds(21, 102, 127, 14);
+			lblCantidadRecogida.setBounds(21, 75, 127, 14);
 			contentPane.add(lblCantidadRecogida);
 			
 			txtCantRec = new JTextField();
-			txtCantRec.setBounds(160, 99, 86, 20);
+			txtCantRec.setBounds(160, 72, 86, 20);
 			contentPane.add(txtCantRec);
 			txtCantRec.setColumns(10);
-			//http://javapiola.blogspot.com.es/2009/11/aprendiendo-lo-basico-de-jslider-y.html
-			/*JSlider sliderCantRec = new JSlider(JSlider.HORIZONTAL,0,txtCantPlant.getText(),50);
-			sliderCantRec.setMaximum(1000);
-			sliderCantRec.setBounds(75, 130, 200, 23);
-			contentPane.add(sliderCantRec);*/
-			
-			JLabel lblCantidadPlantada = new JLabel("Cantidad Plantada:");
-			lblCantidadPlantada.setBounds(22, 77, 105, 14);
-			contentPane.add(lblCantidadPlantada);
-			
-			txtCantPlant = new JTextField(this.plant_sel.getCantPlant());
-			txtCantPlant.setBounds(160, 74, 86, 20);
-			contentPane.add(txtCantPlant);
-			txtCantPlant.setColumns(10);
 
 		}
 		private void btnAceptarClick(){
