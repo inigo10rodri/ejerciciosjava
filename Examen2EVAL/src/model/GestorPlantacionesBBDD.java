@@ -24,10 +24,10 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 	}
 
 	@Override
-	public void recolectar(int parcela, Date fechaPlan, int cantRec) {
+	public void recolectar(int parcela, Date fechaRec, int cantRec) {
 		// TODO Auto-generated method stub
 		String sql = "UPDATE PLANTACIONES SET CANT_REC= " + cantRec + " WHERE PARCELA =" + parcela
-				+ " AND FECHA_PLAN ='" + sdf.format(fechaPlan) + "';";
+				+ " AND FECHA_REC ='" + sdf.format(fechaRec) + "';";
 		gbd.updateSQL(sql);
 	}
 

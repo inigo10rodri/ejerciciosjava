@@ -51,12 +51,10 @@ public class GestorBDSQLite {
 		}
 	}
 
-	public void updateSQL(String sql) {
-		// TODO Auto-generated method stub
+	public void updateSQL(String sql){
 		try {
 			st.executeUpdate(sql);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
