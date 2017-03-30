@@ -26,8 +26,9 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 	@Override
 	public void recolectar(int parcela, Date fechaRec, int cantRec) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE PLANTACIONES SET CANT_REC= " + cantRec + " WHERE PARCELA =" + parcela
-				+ " AND FECHA_REC ='" + sdf.format(fechaRec) + "';";
+		String sql = "UPDATE PLANTACIONES SET CANT_REC= " + cantRec +
+				" WHERE PARCELA =" + parcela+
+				" AND FECHA_REC ='" + sdf.format(fechaRec) + "';";
 		gbd.updateSQL(sql);
 	}
 
@@ -36,6 +37,12 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void eliminar(int parcela, Date fechaPlan){
+		String sql = "DELETE FROM PLANTACIONES WHERE PARCELA =" +parcela+
+				" AND FECHA_PLAN ='" + sdf.format(fechaPlan) + "';";
+		gbd.updateSQL(sql);
+	}	
 
 	@Override
 	public ArrayList<Plantacion> getPlantaciones() {

@@ -12,6 +12,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="try {"/>
 			<item value="plantar"/>
 			<item value="radioB"/>
 		</list>

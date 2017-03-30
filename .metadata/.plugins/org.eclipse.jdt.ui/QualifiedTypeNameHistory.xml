@@ -40,4 +40,5 @@
 <fullyQualifiedTypeName name="model.GestorPlantacionesFicheros"/>
 <fullyQualifiedTypeName name="model.IGestorPlantaciones"/>
 <fullyQualifiedTypeName name="model.GestorPlantacionesBBDD"/>
+<fullyQualifiedTypeName name="datos.Plantacion"/>
 </qualifiedTypeNameHistroy>
