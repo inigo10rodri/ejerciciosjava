@@ -13,6 +13,7 @@ import datos.Plantacion;
 public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 	GestorBDSQLite gbd = new GestorBDSQLite();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	
 
 	@Override
 	public void plantar(Plantacion plant) {
@@ -42,7 +43,20 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 		String sql = "DELETE FROM PLANTACIONES WHERE PARCELA =" +parcela+
 				" AND FECHA_PLAN ='" + sdf.format(fechaPlan) + "';";
 		gbd.updateSQL(sql);
-	}	
+	}
+	public void updatePlant(Plantacion p){
+		Date fechaPlan= p.getFechaPlan();
+		int parcela= p.getParcela();
+		String sql = "UPDATE PLANTACIONES SET PARCELA=" + p.getParcela() +
+					",FECHA_PLAN='" + sdf.format(p.getFechaPlan())
+					+ "',FECHA_REC='" + sdf.format(p.getFechaRec()) +
+					"',ESPECIE='" + p.getEspecie() +
+					"',CANT_PLANT=" + p.getCantPlant()+
+					" WHERE PARCELA =" + parcela+
+					" AND FECHA_PLAN ='" + sdf.format(fechaPlan)
+					+ ";";
+		gbd.updateSQL(sql);
+	}
 
 	@Override
 	public ArrayList<Plantacion> getPlantaciones() {

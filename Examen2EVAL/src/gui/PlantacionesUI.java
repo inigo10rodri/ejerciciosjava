@@ -21,8 +21,10 @@ import javax.swing.JButton;
 import javax.swing.DefaultListModel;
 import javax.swing.DropMode;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -68,7 +70,7 @@ public class PlantacionesUI extends JFrame {
 	public PlantacionesUI() {
 		setTitle("Plantaciones");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 439, 299);
+		setBounds(100, 100, 439, 324);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -165,7 +167,7 @@ public class PlantacionesUI extends JFrame {
 		contentPane.add(btnSalir);
 
 		JLabel lblEspecie = new JLabel("Especie:");
-		lblEspecie.setBounds(179, 93, 127, 14);
+		lblEspecie.setBounds(179, 87, 127, 14);
 		contentPane.add(lblEspecie);
 
 		txtEspecie = new JTextField();
@@ -190,6 +192,15 @@ public class PlantacionesUI extends JFrame {
 		});
 		btnEliminar.setBounds(222, 227, 89, 23);
 		contentPane.add(btnEliminar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnActualizarClick();
+			}
+		});
+		btnActualizar.setBounds(168, 261, 106, 23);
+		contentPane.add(btnActualizar);
 
 	}
 
@@ -222,13 +233,57 @@ public class PlantacionesUI extends JFrame {
 			System.out.println("Plantacion borrada: " + plantacion_seleccionada);
 			
 			String query;
-			query="DELETE FROM PLANTACIONES WHERE PARCELA ="+plantacion_seleccionada.getParcela()+
+			query="UPDATE PLANTACIONES WHERE PARCELA ="+plantacion_seleccionada.getParcela()+
 					" AND FECHA_PLAN='" + sdf.format(plantacion_seleccionada.getFechaPlan())+"';";
 			System.out.println("Query: "+query);
 			gbd.updateSQL(query);
 		}
 	}
-
+	//Boton actualizar plantacion
+	private void btnActualizarClick(){
+		int selected_index = listPlantaciones.getSelectedIndex();
+		if (selected_index < 0) {
+			JOptionPane.showMessageDialog(null, "Debes seleccionar la plantacion que quieres eliminar!");
+		} else {
+			Plantacion plantacion_seleccionada = (Plantacion) listPlantaciones.getModel().getElementAt(selected_index);
+			//Cogemos los valores de las cajas de texto
+			int parcela= Integer.parseInt(txtParcela.getText());
+			try {
+				Date FechaPlan=sdf.parse(txtFechaPlant.getText());
+				plantacion_seleccionada.setFechaPlan(FechaPlan);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				Date FechaRec=sdf.parse(txtFechaRec.getText());
+				plantacion_seleccionada.setFechaRec(FechaRec);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String especie=txtEspecie.getText();
+			int cantPlant= (Integer)txtCantPlant.getValue();
+			
+			/**/
+			//Actualizamos los datos de la plantacion
+			plantacion_seleccionada.setParcela(parcela);				
+			plantacion_seleccionada.setEspecie(especie);
+			plantacion_seleccionada.setCantPlant(cantPlant);
+			
+			/**/
+			//Coger los datos de las plantaciones
+			String query;
+			query="UPDATE PLANTACIONES SET PARCELA=" + plantacion_seleccionada.getParcela() +
+					",FECHA_PLAN='" + sdf.format(plantacion_seleccionada.getFechaPlan())
+					+ "',FECHA_REC='" + sdf.format(plantacion_seleccionada.getFechaRec()) +
+					"',ESPECIE='" + plantacion_seleccionada.getEspecie() +
+					"',CANT_PLANT=" + plantacion_seleccionada.getCantPlant()+
+					";";
+			System.out.println("Query: "+query);
+			gbd.updateSQL(query);
+		}
+	}
 	// muestra los datos del parametro en el jList
 	public void actualizarListado(ArrayList<Plantacion> lstPlantas) {
 		// añadir las plantaciones pasadas como parametro en el ArrayList
