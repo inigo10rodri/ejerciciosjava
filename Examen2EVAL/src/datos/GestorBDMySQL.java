@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 public class GestorBDMySQL {
 	private static Connection Conexion;
+	private Statement st = null;
 	
 	 public static void main(String[] args) {
 		 GestorBDMySQL db = new GestorBDMySQL();
@@ -26,7 +27,7 @@ public class GestorBDMySQL {
 	
 	 public void MySQLConnection(String user, String pass, String db_name) throws Exception {
 	        try {
-	            Class.forName("com.mysql.jdbc.Driver");
+	            Class.forName("org.mysql.jdbc.Driver");
 	            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db_name, user, pass);
 	            JOptionPane.showMessageDialog(null, "Se ha iniciado la conexión con el servidor de forma exitosa");
 	        } catch (ClassNotFoundException ex) {
@@ -44,6 +45,23 @@ public class GestorBDMySQL {
 	            Logger.getLogger(GestorBDMySQL.class.getName()).log(Level.SEVERE, null, ex);
 	        }
 	   }
+	 public void updateSQL(String sql){
+			try {
+				st.executeUpdate(sql);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	 public ResultSet executeSQL(String sql) {
+			// TODO Auto-generated method stub
+			try {
+				return st.executeQuery(sql);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+		}
 
 }
 //http://panamahitek.com/los-7-pasos-seguir-para-el-manejo-de-mysql-con-java/

@@ -28,7 +28,7 @@ public class GestorBDSQLite {
 				st = cn.createStatement();
 			} else {
 				// si no existe la base de datos la crea
-				// conectarnos la la bd
+				// conectarnos a la bd
 				cn = DriverManager.getConnection("jdbc:sqlite:" + RUTA_BD);
 				st = cn.createStatement();
 				st.executeUpdate(CREATE_TABLE);

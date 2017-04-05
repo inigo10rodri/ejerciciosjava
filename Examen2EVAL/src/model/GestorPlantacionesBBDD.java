@@ -7,11 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import datos.GestorBDMySQL;
 import datos.GestorBDSQLite;
 import datos.Plantacion;
 
 public class GestorPlantacionesBBDD implements IGestorPlantaciones {
-	GestorBDSQLite gbd = new GestorBDSQLite();
+	GestorBDMySQL gbd = new GestorBDMySQL();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	
 
@@ -31,6 +32,7 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 				" WHERE PARCELA =" + parcela+
 				" AND FECHA_REC ='" + sdf.format(fechaRec) + "';";
 		gbd.updateSQL(sql);
+		
 	}
 
 	@Override
@@ -43,6 +45,7 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 		String sql = "DELETE FROM PLANTACIONES WHERE PARCELA =" +parcela+
 				" AND FECHA_PLAN ='" + sdf.format(fechaPlan) + "';";
 		gbd.updateSQL(sql);
+		
 	}
 	public void updatePlant(Plantacion p){
 		Date fechaPlan= p.getFechaPlan();
@@ -56,6 +59,7 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 					" AND FECHA_PLAN ='" + sdf.format(fechaPlan)
 					+ ";";
 		gbd.updateSQL(sql);
+		
 	}
 
 	@Override
@@ -64,6 +68,7 @@ public class GestorPlantacionesBBDD implements IGestorPlantaciones {
 		String sql = "SELECT * FROM PLANTACIONES";
 		// pedir a la base de datos todas las plantaciones.
 		ResultSet rs = gbd.executeSQL(sql);
+		
 		try {
 			while (rs.next()) {
 				int parcela = rs.getInt("PARCELA");
