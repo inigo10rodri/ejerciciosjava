@@ -286,6 +286,7 @@ public class PlantacionesUI extends JFrame {
 	}
 	// muestra los datos del parametro en el jList
 	public void actualizarListado(ArrayList<Plantacion> lstPlantas) {
+		dlm.clear();
 		// añadir las plantaciones pasadas como parametro en el ArrayList
 		for (Plantacion p : lstPlantas) {
 			dlm.addElement(p);
