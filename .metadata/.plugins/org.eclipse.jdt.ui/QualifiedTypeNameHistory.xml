@@ -32,7 +32,6 @@
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="javax.swing.DefaultListModel"/>
 <fullyQualifiedTypeName name="model.Plantacion"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
 <fullyQualifiedTypeName name="model.GestorPlantacionesFicheros"/>
 <fullyQualifiedTypeName name="model.IGestorPlantaciones"/>
@@ -45,4 +44,8 @@
 <fullyQualifiedTypeName name="datos.GestorBDMySQL"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="datos.GestorBDSQLite"/>
+<fullyQualifiedTypeName name="model.GestorContactos"/>
+<fullyQualifiedTypeName name="datos.Contacto"/>
 </qualifiedTypeNameHistroy>

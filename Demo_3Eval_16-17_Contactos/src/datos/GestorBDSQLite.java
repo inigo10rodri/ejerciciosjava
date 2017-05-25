@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class GestorBDSQLite {
 	private static final String RUTA_BD = ".\\Contactos.sqlite";
-	private static final String CREATE_TABLE = "CREATE TABLE "+"'CONTACTOS' ('nom' TEXT, 'tlfno' TEXT PRIMARY KEY  NOT NULL , 'edad' NUMERIC,'indice' NUMERIC));";
+	private static final String CREATE_TABLE = "CREATE TABLE "+"'CONTACTOS' ('nom' TEXT, 'tlfno' TEXT PRIMARY KEY  NOT NULL , 'edad' NUMERIC));";
 	private Connection cn = null;
 	private Statement st = null;
 

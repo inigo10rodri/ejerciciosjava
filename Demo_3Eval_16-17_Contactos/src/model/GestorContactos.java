@@ -8,11 +8,12 @@ import datos.GestorBDSQLite;
 
 public class GestorContactos{
 	
-	GestorBDSQLite gbd = new GestorBDSQLite();
+	private GestorBDSQLite gbd = new GestorBDSQLite();
 	private ArrayList<Contacto> lstContactos = new ArrayList<Contacto>();
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	
-	
+	public int getSizeContactos(){
+		return lstContactos.size();
+	}
 	public Contacto getContacto(int ind) {
 		// devuelve el contacto que se encuentra en el índice pasado como parámetro		
 		return lstContactos.get(ind);

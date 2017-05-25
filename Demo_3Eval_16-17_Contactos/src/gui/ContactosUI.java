@@ -16,16 +16,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ContactosUI<lstContactos> extends JFrame {
+public class ContactosUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtTelefono;
 	private JTextField txtEdad;
 	private JTextField txtIndice;
-	JButton btnNuevo;
 	private GestorContactos gc = new GestorContactos();
-	Contacto c=new Contacto();
 
 	/**
 	 * Launch the application.
@@ -108,7 +106,7 @@ public class ContactosUI<lstContactos> extends JFrame {
 		btnUltimo.setBounds(190, 11, 46, 23);
 		contentPane.add(btnUltimo);
 		
-		btnNuevo = new JButton("Nuevo");
+		JButton btnNuevo = new JButton("Nuevo");
 		btnNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				btnNuevoClick();
@@ -139,17 +137,23 @@ public class ContactosUI<lstContactos> extends JFrame {
 		txtNombre.setText(null);
 		txtEdad.setText(null);
 		txtTelefono.setText(null);
+		txtIndice.setText(""+gc.getSizeContactos());
 		txtNombre.requestFocus();
+		
 	}
 	public void btnGuardarClick(){
-		if(btnNuevo.isSelected()){
-			
+		Contacto c=new Contacto();
+		c.setNom(txtNombre.getText());
+		c.setEdad(Integer.parseInt(txtEdad.getText()));
+		c.setTlfno(txtTelefono.getText());
+		
+		if(gc.getSizeContactos()==Integer.parseInt(txtIndice.getText())){
 			gc.addContacto(c);
 		}else{
-			gc.modContacto(c,lstContactos.get(ind));
+			gc.modContacto(c,Integer.parseInt(txtIndice.getText()));
 		}
 	}
 	public void btnEliminarClick(){
-		gc.delContacto(ind);
+		gc.delContacto(Integer.parseInt(txtIndice.getText()));
 	}
 }
