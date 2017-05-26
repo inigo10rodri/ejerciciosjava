@@ -48,4 +48,5 @@
 <fullyQualifiedTypeName name="datos.GestorBDSQLite"/>
 <fullyQualifiedTypeName name="model.GestorContactos"/>
 <fullyQualifiedTypeName name="datos.Contacto"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>
