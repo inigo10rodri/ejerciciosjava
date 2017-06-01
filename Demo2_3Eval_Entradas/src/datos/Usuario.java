@@ -27,14 +27,12 @@ public class Usuario {
 	public int getContVisitas() {
 		return contVisitas;
 	}
-	public void incContVisitas(int contVisitas) {
-		contVisitas++;
+	public void setContVisitas(int contVisitas) {
 		this.contVisitas = contVisitas;
 	}
-
 	@Override
 	public String toString() {
-		return "Usuario [cod=" + cod + ", pass=" + pass + ", contVisitas=" + contVisitas + "]";
+		return  cod;
 	}
 	
 	

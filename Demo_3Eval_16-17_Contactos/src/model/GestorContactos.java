@@ -78,6 +78,6 @@ public class GestorContactos{
 		//del arrayList
 		lstContactos.remove(ind);
 		
-	}
+	}	
 
 }

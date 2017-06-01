@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class GestorBDSQLite {
-	private static final String RUTA_BD = ".\\Usuarios.sqlite";
+	private static final String RUTA_BD = ".\\Usuario.sqlite";
 	private static final String CREATE_TABLE = "CREATE TABLE "
 			+ "'USUARIOS' ('cod' TEXT PRIMARY KEY  NOT NULL, 'pass' TEXT , 'contVisitas' NUMERIC));";
 	private Connection cn = null;
